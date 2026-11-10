@@ -74,7 +74,7 @@ main { overflow-x: clip; }
 
 /* ===== Hero ===== */
 .hero { padding: 72px 0 88px; }
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 88px; align-items: center; }
 .kicker { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
 .hero h1 { font-size: clamp(3rem, 7vw, 5.6rem); line-height: 1.02; letter-spacing: -0.025em; margin-bottom: 28px; }
 .hero h1 em { color: var(--accent); }
@@ -82,9 +82,12 @@ main { overflow-x: clip; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .hero-photo { position: relative; margin: 0; }
 .hero-photo img { position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 47% center; border-radius: 2px; }
-.hero-photo::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--accent); z-index: 0; }
-.hero-orbit { position: absolute; inset: -12%; width: 124%; height: 124%; z-index: 2; pointer-events: none; overflow: visible; }
-.hero-orbit ellipse { fill: none; stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 3 6; opacity: .7; transform-origin: 200px 200px; animation: orbit 60s linear infinite; }
+.hero-photo::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--line); z-index: 0; }
+.hero-orbit { position: absolute; top: -16%; left: -10%; width: 128%; height: 132%; pointer-events: none; overflow: visible; }
+.orbit-back { z-index: 0; }
+.orbit-front { z-index: 2; }
+.orbit-path { fill: none; stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 3 6; animation: orbit 60s linear infinite; }
+.orbit-sat { fill: var(--accent); }
 @keyframes orbit { to { stroke-dashoffset: -900; } }
 
 /* Load-in */
@@ -304,7 +307,7 @@ main { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .hero-copy > *, .hero-photo { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
-  .hero-orbit ellipse { animation: none; }
+  .orbit-path { animation: none; }
 }
 
 /* ===== Print: turns the page into a clean CV ===== */

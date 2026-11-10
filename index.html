@@ -51,8 +51,21 @@
           </div>
         </div>
         <figure class="hero-photo">
-          <svg class="hero-orbit" viewBox="0 0 400 400" aria-hidden="true"><ellipse cx="200" cy="200" rx="190" ry="70" transform="rotate(-18 200 200)"/></svg>
+          <svg class="hero-orbit orbit-back" viewBox="0 0 400 400" aria-hidden="true">
+            <defs><clipPath id="orbit-clip-back"><rect x="-50" y="-50" width="500" height="235"/></clipPath></defs>
+            <g transform="rotate(-18 200 185)" clip-path="url(#orbit-clip-back)">
+              <path class="orbit-path" d="M10 185a190 70 0 1 0 380 0a190 70 0 1 0 -380 0"/>
+              <circle class="orbit-sat" r="6"><animateMotion dur="20s" repeatCount="indefinite" path="M10 185a190 70 0 1 0 380 0a190 70 0 1 0 -380 0"/></circle>
+            </g>
+          </svg>
           <img src="assets/johnmark-speaking.jpg" alt="Johnmark Ochieng speaking at a podium" width="1024" height="683">
+          <svg class="hero-orbit orbit-front" viewBox="0 0 400 400" aria-hidden="true">
+            <defs><clipPath id="orbit-clip-front"><rect x="-50" y="185" width="500" height="265"/></clipPath></defs>
+            <g transform="rotate(-18 200 185)" clip-path="url(#orbit-clip-front)">
+              <path class="orbit-path" d="M10 185a190 70 0 1 0 380 0a190 70 0 1 0 -380 0"/>
+              <circle class="orbit-sat" r="6"><animateMotion dur="20s" repeatCount="indefinite" path="M10 185a190 70 0 1 0 380 0a190 70 0 1 0 -380 0"/></circle>
+            </g>
+          </svg>
         </figure>
       </div>
     </section>
@@ -92,8 +105,8 @@
           <h2>Between the launch pad and the press room.</h2>
         </header>
         <div class="reveal">
-          <p class="body-lg">I'm Marketing and Communications Specialist at the Research Institute for Innovation and Sustainability (RIIS). Before that I told the stories of Digital Earth Africa, the Kenya Space Agency and Leo Sky Africa.</p>
-          <p>My background is in journalism, with training in African and global space policy. I care most about space sustainability, global space governance and bringing the public into Africa's emerging space ecosystems. Away from work I'm an amateur astronomer and run an outdoor adventure brand, @thetryingathlete.</p>
+          <p class="body-lg">I'm a Marketing and Communications Specialist at the Research Institute for Innovation and Sustainability (RIIS). Before that I supported communications at Digital Earth Africa, the Kenya Space Agency and Leo Sky Africa.</p>
+          <p>My background is in journalism, with training in African and global space policy. I care most about space sustainability, global space governance and helping the public see, understand and take part in Africa's growing space sector. Away from work I'm an amateur astronomer and run an outdoor adventure brand, @thetryingathlete.</p>
           <dl class="facts">
             <div><dt>Based in</dt><dd>Nairobi, Kenya</dd></div>
             <div><dt>Languages</dt><dd>English, Kiswahili, German (basic)</dd></div>

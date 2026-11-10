@@ -3,6 +3,9 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Respect reduced-motion for the orbiting satellite (SVG animation)
+if (reduceMotion) document.querySelectorAll(".hero-orbit").forEach((svg) => svg.pauseAnimations && svg.pauseAnimations());
+
 /* ---------- Mobile menu ---------- */
 const toggle = document.querySelector(".nav-toggle");
 const links = document.getElementById("nav-links");
