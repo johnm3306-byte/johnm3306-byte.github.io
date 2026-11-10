@@ -52,7 +52,11 @@ p { margin: 0 0 1em; }
   border-bottom: 1px solid var(--line);
 }
 .logo { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; text-decoration: none; }
-.logo span, h1 em { color: var(--accent); }
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo-mark { width: 36px; height: 36px; color: var(--text); flex: none; transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); }
+.logo:hover .logo-mark { transform: rotate(-14deg) scale(1.1); }
+.logo-word { font-size: 1.35rem; letter-spacing: -0.01em; }
+.logo-word > span, h1 em { color: var(--accent); }
 .nav nav { display: flex; gap: 28px; align-items: center; }
 .nav nav a { text-decoration: none; color: var(--muted); font-size: 0.95rem; transition: color .2s; }
 .nav nav a:hover { color: var(--text); }

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Johnmark Ochieng logo">
+  <defs>
+    <radialGradient id="sg-g" cx=".35" cy=".35" r=".8">
+      <stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#ff6b2c"/>
+    </radialGradient>
+  </defs>
+  <circle cx="14" cy="34" r="8" fill="url(#sg-g)"/>
+  <path d="M14 18a16 16 0 0 1 16 16" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M14 10a24 24 0 0 1 24 24" fill="none" stroke="currentColor" stroke-opacity=".7" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M14 2a32 32 0 0 1 32 32" fill="none" stroke="#7c6cff" stroke-width="3.2" stroke-linecap="round"/>
+</svg>

@@ -21,7 +21,7 @@ for src, dest in PAGES.items():
     html = html.replace('<link rel="stylesheet" href="styles.css">', f"<style>\n{css}\n</style>")
     html = re.sub(r'<script src="([\w.-]+\.js)"></script>',
                   lambda m: f"<script>\n{(root / m.group(1)).read_text()}\n</script>", html)
-    html = re.sub(r'(src|content)="(assets/[^"]+)"', inline_img, html)
+    html = re.sub(r'(src|content|href)="(assets/[^"]+\.(?:svg|png|jpe?g))"', inline_img, html)
     for page, preview in PAGES.items():   # point page links at the preview files
         html = re.sub(rf'href="{re.escape(page)}(#[^"]*)?"', lambda m: f'href="{preview}{m.group(1) or ""}"', html)
     out = root / dest
