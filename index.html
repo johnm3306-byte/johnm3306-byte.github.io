@@ -15,6 +15,9 @@
 </head>
 <body>
   <div class="stars" aria-hidden="true"></div>
+  <canvas id="space" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
 
   <header class="nav">
     <a href="#top" class="logo">JO<span>.</span></a>
@@ -33,8 +36,10 @@
   <main id="top">
     <!-- HERO -->
     <section class="hero">
+      <div class="hero-inner">
       <p class="eyebrow">Nairobi · Space · Earth observation · Policy</p>
-      <h1>Johnmark Ochieng<br><em>makes space</em> make sense.</h1>
+      <h1 class="split">Johnmark Ochieng<br><em>makes space</em> make sense.</h1>
+      <p class="roles">I'm your <span class="typed" data-words="MC|panel moderator|space communicator|storyteller|space policy writer|crisis communicator|strategist"></span><span class="caret" aria-hidden="true"></span></p>
       <p class="lede">MC, moderator and communications specialist working where space, policy and sustainable development meet across Africa. I turn complex science and policy into stories that decision-makers, practitioners and the public understand and remember.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Book or hire me</a>
@@ -42,24 +47,40 @@
         <!-- When your final CV is ready, save it as assets/cv.pdf and uncomment:
         <a href="assets/cv.pdf" class="btn btn-ghost" download>Download CV</a> -->
       </div>
-      <ul class="hero-stats">
-        <li><strong>4+</strong><span>years in space communication</span></li>
-        <li><strong>37</strong><span>published articles</span></li>
-        <li><strong>3</strong><span>languages: EN · SW · DE</span></li>
+      <ul class="hero-stats stagger">
+        <li><strong data-count="4" data-suffix="+">4+</strong><span>years in space communication</span></li>
+        <li><strong data-count="37">37</strong><span>published articles</span></li>
+        <li><strong data-count="3">3</strong><span>languages: EN · SW · DE</span></li>
       </ul>
+      </div>
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
     </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Global Data Festival</span><i>✦</i><span>Women in Space Kenya</span><i>✦</i><span>AEOC Finale</span><i>✦</i><span>Kenya Space Expo</span><i>✦</i><span>Kenya Space Agency</span><i>✦</i><span>Digital Earth Africa</span><i>✦</i><span>RIIS</span><i>✦</i><span>Kenya Space Innovation &amp; Investment Forum</span><i>✦</i><span>Leo Sky Africa</span><i>✦</i>
+        <span>Global Data Festival</span><i>✦</i><span>Women in Space Kenya</span><i>✦</i><span>AEOC Finale</span><i>✦</i><span>Kenya Space Expo</span><i>✦</i><span>Kenya Space Agency</span><i>✦</i><span>Digital Earth Africa</span><i>✦</i><span>RIIS</span><i>✦</i><span>Kenya Space Innovation &amp; Investment Forum</span><i>✦</i><span>Leo Sky Africa</span><i>✦</i>
+      </div>
+    </div>
 
     <!-- ABOUT -->
     <section id="about" class="section about reveal">
       <div class="section-label">01 / About</div>
       <div class="about-grid">
         <div class="portrait">
+          <div class="orbit" aria-hidden="true"><span class="sat"></span></div>
           <img src="assets/johnmark-speaking.jpg" alt="Johnmark Ochieng speaking at a podium" width="1024" height="683">
         </div>
         <div>
           <h2>Between the launch pad and the press room.</h2>
           <p>I'm a Nairobi-based communications professional, currently Marketing and Communications Specialist at the Research Institute for Innovation and Sustainability (RIIS). Before that I told the stories of Digital Earth Africa, the Kenya Space Agency and Leo Sky Africa.</p>
           <p>My background is in journalism, with training in African and global space policy. I care most about space sustainability, global space governance and bringing the public into Africa's emerging space ecosystems.</p>
+          <ul class="chips stagger">
+            <li>Amateur astronomer</li>
+            <li>Outdoor creator · @thetryingathlete</li>
+            <li>English · Kiswahili · German</li>
+            <li>Based in Nairobi</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -68,8 +89,8 @@
     <section id="services" class="section reveal">
       <div class="section-label">02 / Services</div>
       <h2>How I can help</h2>
-      <div class="services">
-        <article class="service service-feature">
+      <div class="services stagger">
+        <article class="tilt service service-feature">
           <span class="card-num">01</span>
           <h3>MCing &amp; event moderation</h3>
           <p>Every great event needs a voice that brings clarity, connection and energy. From global science forums and corporate summits to policy dialogues and launches, I keep conversations flowing and audiences engaged, blending preparation with presence.</p>
@@ -81,7 +102,7 @@
             <li>Tone and messaging aligned with event objectives</li>
           </ul>
         </article>
-        <article class="service">
+        <article class="tilt service">
           <span class="card-num">02</span>
           <h3>Content development</h3>
           <p>Complex ideas deserve stories that connect. I turn space and science concepts into clear narratives that inform, inspire and build trust.</p>
@@ -93,7 +114,7 @@
             <li>Newsletters, case studies and white papers</li>
           </ul>
         </article>
-        <article class="service">
+        <article class="tilt service">
           <span class="card-num">03</span>
           <h3>PR &amp; media relations</h3>
           <p>Visibility drives influence. I help organisations in the space ecosystem land their message in local and global media and build public trust.</p>
@@ -105,7 +126,7 @@
             <li>Crisis communication and reputation management</li>
           </ul>
         </article>
-        <article class="service service-accent">
+        <article class="tilt service service-accent">
           <span class="card-num">04</span>
           <h3>Advisory</h3>
           <p>Good communication is strategy in action. I help organisations define their voice, align messaging with mission and build communication systems that last.</p>
@@ -125,7 +146,7 @@
       <div class="section-label">03 / On stage</div>
       <h2>Hosting &amp; moderation</h2>
       <p class="section-intro">From national space expos to international forums: keeping rooms focused and conversations sharp between policymakers, engineers, researchers, investors and partners.</p>
-      <ul class="event-list">
+      <ul class="event-list stagger">
         <!-- Newest first. Copy one <li> block per new event. -->
         <li>
           <span class="event-year">2026</span>
@@ -154,7 +175,7 @@
         </li>
         <li>
           <span class="event-year">2025</span>
-          <div><h3>Launch of the Kenya Communities of Practice</h3><p>MC of the launch</p></div>
+          <div><h3>Launch of the Kenya Space Sector Communities of Practice</h3><p>MC of the launch</p></div>
           <span class="event-tags"><span class="event-tag">MC</span></span>
         </li>
         <li>
@@ -171,43 +192,43 @@
       <div class="section-label">04 / Writing</div>
       <h2>Space policy, in plain words</h2>
       <p class="section-intro">Selected articles from <a href="https://traversingcosmos.wordpress.com/" target="_blank" rel="noopener">Traversing the Cosmos</a>, my blog on African space policy, sustainability, Earth observation and astronomy.</p>
-      <div class="articles">
-        <a class="article" href="https://traversingcosmos.wordpress.com/2026/01/01/kenyas-evolving-space-sector-2025-end-of-year-review/" target="_blank" rel="noopener">
+      <div class="articles stagger">
+        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2026/01/01/kenyas-evolving-space-sector-2025-end-of-year-review/" target="_blank" rel="noopener">
           <img class="article-img" src="assets/articles/post-1.jpg" alt="" loading="lazy">
           <span class="article-meta">Opinion · Jan 2026</span>
           <h3>Kenya's evolving space sector: 2025 end-of-year review</h3>
           <p>Of momentum, maturity and the hard work ahead: a year in which Kenya's space sector stopped trying to prove itself.</p>
           <span class="article-link">Read on Traversing the Cosmos →</span>
         </a>
-        <a class="article" href="https://traversingcosmos.wordpress.com/2025/11/13/kenya-has-quietly-built-the-foundation-to-become-east-africas-hub-for-space-innovation/" target="_blank" rel="noopener">
+        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2025/11/13/kenya-has-quietly-built-the-foundation-to-become-east-africas-hub-for-space-innovation/" target="_blank" rel="noopener">
           <img class="article-img" src="assets/articles/post-2.jpg" alt="" loading="lazy">
           <span class="article-meta">Space law &amp; policy · Nov 2025</span>
           <h3>Kenya has quietly built the foundation to become East Africa's hub for space innovation</h3>
           <p>How small, deliberate steps turned into a trajectory that makes Kenya the region's most active space nation.</p>
           <span class="article-link">Read on Traversing the Cosmos →</span>
         </a>
-        <a class="article" href="https://traversingcosmos.wordpress.com/2025/06/13/why-smart-space-policy-is-kenyas-best-bet-for-global-space-leadership/" target="_blank" rel="noopener">
+        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2025/06/13/why-smart-space-policy-is-kenyas-best-bet-for-global-space-leadership/" target="_blank" rel="noopener">
           <img class="article-img" src="assets/articles/post-3.png" alt="" loading="lazy">
           <span class="article-meta">Space law &amp; policy · Jun 2025</span>
           <h3>Why smart space policy is Kenya's best bet for global space leadership</h3>
           <p>Power in space used to mean the biggest rockets and budgets. That model is changing fast, and policy is the new lever.</p>
           <span class="article-link">Read on Traversing the Cosmos →</span>
         </a>
-        <a class="article" href="https://traversingcosmos.wordpress.com/2025/03/28/a-beginners-guide-to-understanding-eo-satellites-and-their-impact-on-africa/" target="_blank" rel="noopener">
+        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2025/03/28/a-beginners-guide-to-understanding-eo-satellites-and-their-impact-on-africa/" target="_blank" rel="noopener">
           <img class="article-img" src="assets/articles/post-4.jpg" alt="" loading="lazy">
           <span class="article-meta">Earth observation · Mar 2025</span>
           <h3>A beginner's guide to EO satellites and their impact on Africa</h3>
           <p>Space isn't only the Moon and stars. Here's how Earth observation satellites shape everyday life across Africa.</p>
           <span class="article-link">Read on Traversing the Cosmos →</span>
         </a>
-        <a class="article" href="https://traversingcosmos.wordpress.com/2025/02/03/the-legal-foundations-of-kenyas-involvement-in-space-activities/" target="_blank" rel="noopener">
+        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2025/02/03/the-legal-foundations-of-kenyas-involvement-in-space-activities/" target="_blank" rel="noopener">
           <img class="article-img" src="assets/articles/post-5.png" alt="" loading="lazy">
           <span class="article-meta">Space law · Feb 2025</span>
           <h3>The legal foundations of Kenya's involvement in space activities</h3>
           <p>From the Luigi Broglio Space Centre in Malindi to today: the legal story behind Kenya's place in space.</p>
           <span class="article-link">Read on Traversing the Cosmos →</span>
         </a>
-        <a class="article" href="https://traversingcosmos.wordpress.com/2024/12/09/space-sustainability-from-an-african-perspective/" target="_blank" rel="noopener">
+        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2024/12/09/space-sustainability-from-an-african-perspective/" target="_blank" rel="noopener">
           <img class="article-img" src="assets/articles/post-6.png" alt="" loading="lazy">
           <span class="article-meta">Sustainability · Dec 2024</span>
           <h3>Space sustainability from an African perspective</h3>
@@ -248,7 +269,7 @@
           </li>
         </ol>
 
-        <aside class="side">
+        <aside class="side stagger">
           <div class="side-block">
             <h3>Education &amp; training</h3>
             <ul>
@@ -277,8 +298,7 @@
       <div class="section-label">06 / Contact</div>
       <h2>Need a voice for your mission?</h2>
       <p class="section-intro">Available for MC and moderation bookings, communication strategy, PR and commissioned writing, in Nairobi and beyond.</p>
-      <!-- Replace with your email address -->
-      <a class="contact-email" href="mailto:you@example.com">you@example.com</a>
+      <a class="contact-email" href="mailto:jhnmrkochieng@gmail.com">jhnmrkochieng@gmail.com</a>
       <ul class="socials">
         <li><a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://traversingcosmos.wordpress.com/" target="_blank" rel="noopener">Blog</a></li>
