@@ -13,330 +13,350 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="stars" aria-hidden="true"></div>
-  <canvas id="space" aria-hidden="true"></canvas>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <div class="progress" aria-hidden="true"></div>
-
   <header class="nav">
-    <a href="#top" class="logo" aria-label="Johnmark Ochieng, home">
-      <svg class="logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
-  <defs>
-    <linearGradient id="mp-g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#ff6b2c"/>
-    </linearGradient>
-    <clipPath id="mp-front"><rect x="0" y="17" width="48" height="31"/></clipPath>
-  </defs>
-  <ellipse cx="24" cy="17" rx="19" ry="5.5" fill="none" stroke="#7c6cff" stroke-width="2.2" transform="rotate(-16 24 17)"/>
-  <rect x="16.5" y="4" width="15" height="25" rx="7.5" fill="url(#mp-g)"/>
-  <path d="M19.5 12h9M19.5 16.5h9M19.5 21h9" stroke="#140700" stroke-opacity=".28" stroke-width="1.6" stroke-linecap="round"/>
-  <g clip-path="url(#mp-front)">
-    <ellipse cx="24" cy="17" rx="19" ry="5.5" fill="none" stroke="#7c6cff" stroke-width="2.2" transform="rotate(-16 24 17)"/>
-  </g>
-  <circle cx="41.2" cy="12.4" r="2.4" fill="currentColor"/>
-  <path d="M11.5 23.5a12.5 12.5 0 0 0 25 0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M24 36v7M17.5 44h13" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
-</svg>
-      <span class="logo-word">Johnmark<span>.</span></span>
-    </a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-    <nav id="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#stage">On stage</a>
-      <a href="#writing">Writing</a>
-      <a href="#experience">Experience</a>
-      <a href="https://traversingcosmos.wordpress.com/" target="_blank" rel="noopener">Blog ↗</a>
-      <a href="rates.html">Rates</a>
-      <a href="#contact" class="nav-cta">Contact</a>
-    </nav>
+    <div class="nav-inner">
+      <a href="#top" class="logo" aria-label="Johnmark Ochieng, home">
+        <img src="assets/logo/mark.svg" alt="" class="logo-mark" width="34" height="34">
+        <span class="logo-word">Johnmark Ochieng</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <nav id="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#stage">Speaking</a>
+        <a href="#writing">Writing</a>
+        <a href="#experience">Experience</a>
+        <a href="rates.html">Rates</a>
+        <a href="#contact" class="btn btn-dark btn-sm">Book Johnmark</a>
+      </nav>
+    </div>
   </header>
 
   <main id="top">
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-inner">
-      <p class="eyebrow">Nairobi · Space · Earth observation · Policy</p>
-      <h1 class="split">Johnmark Ochieng<br><em>makes space</em> make sense.</h1>
-      <p class="roles">I'm your <span class="typed" data-words="MC|panel moderator|space communicator|storyteller|space policy writer|crisis communicator|strategist"></span><span class="caret" aria-hidden="true"></span></p>
-      <p class="lede">MC, moderator and communications specialist working where space, policy and sustainable development meet across Africa. I turn complex science and policy into stories that decision-makers, practitioners and the public understand and remember.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Book or hire me</a>
-        <a href="rates.html" class="btn btn-ghost">Rates &amp; booking</a>
-        <!-- When your final CV is ready, save it as assets/cv.pdf and uncomment:
-        <a href="assets/cv.pdf" class="btn btn-ghost" download>Download CV</a> -->
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Space communication · MC &amp; moderation · Space policy</p>
+          <h1>Making space <em>make sense.</em></h1>
+          <p class="lede">I'm Johnmark Ochieng, a Nairobi-based communications specialist, MC and moderator for Africa's space and Earth observation sector. I turn complex science and policy into conversations people follow and remember.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-dark">Book me for your event</a>
+            <a href="rates.html" class="btn btn-line">View rate card</a>
+          </div>
+        </div>
+        <figure class="hero-photo">
+          <svg class="hero-orbit" viewBox="0 0 400 400" aria-hidden="true"><ellipse cx="200" cy="200" rx="190" ry="70" transform="rotate(-18 200 200)"/></svg>
+          <img src="assets/johnmark-speaking.jpg" alt="Johnmark Ochieng speaking at a podium" width="1024" height="683">
+        </figure>
       </div>
-      <ul class="hero-stats stagger">
-        <li><strong data-count="4" data-suffix="+">4+</strong><span>years in space communication</span></li>
-        <li><strong data-count="37">37</strong><span>published articles</span></li>
-        <li><strong data-count="3">3</strong><span>languages: EN · SW · DE</span></li>
-      </ul>
-      </div>
-      <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Global Data Festival</span><i>✦</i><span>Women in Space Kenya</span><i>✦</i><span>AEOC Finale</span><i>✦</i><span>Kenya Space Expo</span><i>✦</i><span>World Space Week</span><i>✦</i><span>70 Years After Bandung · Karachi</span><i>✦</i><span>Global Space Education Summit</span><i>✦</i><span>Kenya Space Agency</span><i>✦</i><span>Digital Earth Africa</span><i>✦</i><span>RIIS</span><i>✦</i><span>Kenya Space Innovation &amp; Investment Forum</span><i>✦</i><span>Leo Sky Africa</span><i>✦</i>
-        <span>Global Data Festival</span><i>✦</i><span>Women in Space Kenya</span><i>✦</i><span>AEOC Finale</span><i>✦</i><span>Kenya Space Expo</span><i>✦</i><span>World Space Week</span><i>✦</i><span>70 Years After Bandung · Karachi</span><i>✦</i><span>Global Space Education Summit</span><i>✦</i><span>Kenya Space Agency</span><i>✦</i><span>Digital Earth Africa</span><i>✦</i><span>RIIS</span><i>✦</i><span>Kenya Space Innovation &amp; Investment Forum</span><i>✦</i><span>Leo Sky Africa</span><i>✦</i>
+    <!-- CREDIBILITY STRIP -->
+    <section class="trust">
+      <div class="wrap">
+        <p class="trust-label">Worked with and on stage at</p>
+        <ul class="trust-list">
+          <li>Kenya Space Agency</li>
+          <li>Digital Earth Africa</li>
+          <li>RIIS</li>
+          <li>African Earth Observation Challenge</li>
+          <li>Global Data Festival</li>
+          <li>Women in Space Kenya</li>
+          <li>World Space Week</li>
+          <li>Global Space Education Summit</li>
+        </ul>
       </div>
-    </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="wrap stats-grid">
+        <div><strong data-count="4" data-suffix="+">4+</strong><span>years in space communication</span></div>
+        <div><strong data-count="10" data-suffix="+">10+</strong><span>events hosted, moderated or spoken at</span></div>
+        <div><strong data-count="37">37</strong><span>published articles</span></div>
+        <div><strong data-count="2">2</strong><span>countries on stage: Kenya and Pakistan</span></div>
+      </div>
+    </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section about reveal">
-      <div class="section-label">01 / About</div>
-      <div class="about-grid">
-        <div class="portrait">
-          <div class="orbit" aria-hidden="true"><span class="sat"></span></div>
-          <img src="assets/johnmark-speaking.jpg" alt="Johnmark Ochieng speaking at a podium" width="1024" height="683">
-        </div>
-        <div>
+    <section id="about" class="section">
+      <div class="wrap split-grid">
+        <header class="section-head">
+          <p class="eyebrow">About</p>
           <h2>Between the launch pad and the press room.</h2>
-          <p>I'm a Nairobi-based communications professional, currently Marketing and Communications Specialist at the Research Institute for Innovation and Sustainability (RIIS). Before that I told the stories of Digital Earth Africa, the Kenya Space Agency and Leo Sky Africa.</p>
-          <p>My background is in journalism, with training in African and global space policy. I care most about space sustainability, global space governance and bringing the public into Africa's emerging space ecosystems.</p>
-          <ul class="chips stagger">
-            <li>Amateur astronomer</li>
-            <li>Outdoor creator · @thetryingathlete</li>
-            <li>English · Kiswahili · German</li>
-            <li>Based in Nairobi</li>
-          </ul>
+        </header>
+        <div class="reveal">
+          <p class="body-lg">I'm Marketing and Communications Specialist at the Research Institute for Innovation and Sustainability (RIIS). Before that I told the stories of Digital Earth Africa, the Kenya Space Agency and Leo Sky Africa.</p>
+          <p>My background is in journalism, with training in African and global space policy. I care most about space sustainability, global space governance and bringing the public into Africa's emerging space ecosystems. Away from work I'm an amateur astronomer and run an outdoor adventure brand, @thetryingathlete.</p>
+          <dl class="facts">
+            <div><dt>Based in</dt><dd>Nairobi, Kenya</dd></div>
+            <div><dt>Languages</dt><dd>English, Kiswahili, German (basic)</dd></div>
+            <div><dt>Currently</dt><dd>RIIS · Marketing &amp; Communications</dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="section reveal">
-      <div class="section-label">02 / Services</div>
-      <h2>How I can help</h2>
-      <div class="services stagger">
-        <article class="tilt service service-feature">
-          <span class="card-num">01</span>
-          <h3>MCing &amp; event moderation</h3>
-          <p>Every great event needs a voice that brings clarity, connection and energy. From global science forums and corporate summits to policy dialogues and launches, I keep conversations flowing and audiences engaged, blending preparation with presence.</p>
-          <ul>
-            <li>Professional MCing for conferences, launches and special events</li>
-            <li>Moderation of high-level panels and policy discussions</li>
-            <li>Script and agenda consultation for seamless event flow</li>
-            <li>Speaker coordination and audience engagement</li>
-            <li>Tone and messaging aligned with event objectives</li>
-          </ul>
-          <a href="rates.html" class="btn btn-primary service-cta">See rates &amp; get a quote →</a>
-        </article>
-        <article class="tilt service">
-          <span class="card-num">02</span>
-          <h3>Content development</h3>
-          <p>Complex ideas deserve stories that connect. I turn space and science concepts into clear narratives that inform, inspire and build trust.</p>
-          <ul>
-            <li>Thought leadership articles, blogs and reports</li>
-            <li>Social media strategy and content design</li>
-            <li>Video scripting, storyboarding and production support</li>
-            <li>Infographics, presentations and visual storytelling</li>
-            <li>Newsletters, case studies and white papers</li>
-          </ul>
-        </article>
-        <article class="tilt service">
-          <span class="card-num">03</span>
-          <h3>PR &amp; media relations</h3>
-          <p>Visibility drives influence. I help organisations in the space ecosystem land their message in local and global media and build public trust.</p>
-          <ul>
-            <li>Press release writing and media distribution</li>
-            <li>Relationships with key journalists and outlets</li>
-            <li>Coverage across science and mainstream platforms</li>
-            <li>Press conferences and event coverage</li>
-            <li>Crisis communication and reputation management</li>
-          </ul>
-        </article>
-        <article class="tilt service service-accent">
-          <span class="card-num">04</span>
-          <h3>Advisory</h3>
-          <p>Good communication is strategy in action. I help organisations define their voice, align messaging with mission and build communication systems that last.</p>
-          <ul>
-            <li>Strategic communication planning and evaluation</li>
-            <li>Brand positioning and narrative development</li>
-            <li>Stakeholder engagement and partnership strategy</li>
-            <li>Crisis communication and risk management</li>
-            <li>Media landscape analysis and trend insights</li>
-          </ul>
-        </article>
+    <section id="services" class="section section-alt">
+      <div class="wrap">
+        <header class="section-head section-head-row">
+          <div>
+            <p class="eyebrow">Services</p>
+            <h2>How I can help</h2>
+          </div>
+          <a href="rates.html" class="link-arrow">Rates &amp; booking</a>
+        </header>
+        <div class="services">
+          <article class="service reveal">
+            <span class="service-num">01</span>
+            <h3>MCing &amp; event moderation</h3>
+            <p>Every great event needs a voice that brings clarity, connection and energy. From global science forums and corporate summits to policy dialogues and launches, I keep conversations flowing and audiences engaged.</p>
+            <ul>
+              <li>Professional MCing for conferences, launches and special events</li>
+              <li>Moderation of high-level panels and policy discussions</li>
+              <li>Script and agenda consultation for seamless event flow</li>
+              <li>Speaker coordination and audience engagement</li>
+              <li>Tone and messaging aligned with event objectives</li>
+            </ul>
+            <a href="rates.html" class="link-arrow">See rates &amp; get a quote</a>
+          </article>
+          <article class="service reveal">
+            <span class="service-num">02</span>
+            <h3>Content development</h3>
+            <p>Complex ideas deserve stories that connect. I turn space and science concepts into clear narratives that inform, inspire and build trust.</p>
+            <ul>
+              <li>Thought leadership articles, blogs and reports</li>
+              <li>Social media strategy and content design</li>
+              <li>Video scripting, storyboarding and production support</li>
+              <li>Infographics, presentations and visual storytelling</li>
+              <li>Newsletters, case studies and white papers</li>
+            </ul>
+          </article>
+          <article class="service reveal">
+            <span class="service-num">03</span>
+            <h3>PR &amp; media relations</h3>
+            <p>Visibility drives influence. I help organisations in the space ecosystem land their message in local and global media and build public trust.</p>
+            <ul>
+              <li>Press release writing and media distribution</li>
+              <li>Relationships with key journalists and outlets</li>
+              <li>Coverage across science and mainstream platforms</li>
+              <li>Press conferences and event coverage</li>
+              <li>Crisis communication and reputation management</li>
+            </ul>
+          </article>
+          <article class="service reveal">
+            <span class="service-num">04</span>
+            <h3>Advisory</h3>
+            <p>Good communication is strategy in action. I help organisations define their voice, align messaging with mission and build communication systems that last.</p>
+            <ul>
+              <li>Strategic communication planning and evaluation</li>
+              <li>Brand positioning and narrative development</li>
+              <li>Stakeholder engagement and partnership strategy</li>
+              <li>Crisis communication and risk management</li>
+              <li>Media landscape analysis and trend insights</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- ON STAGE -->
-    <section id="stage" class="section stage reveal">
-      <div class="section-label">03 / On stage</div>
-      <h2>Hosting &amp; moderation</h2>
-      <p class="section-intro">From Nairobi to Karachi, national space expos to international forums: keeping rooms focused and conversations sharp between policymakers, engineers, researchers, investors and partners.</p>
-      <ul class="event-list stagger">
-        <!-- Newest first. Copy one <li> block per new event. -->
-        <li>
-          <span class="event-year">2026</span>
-          <div><h3>Global Data Festival</h3><p>MC'd a session and moderated a panel</p></div>
-          <span class="event-tags"><span class="event-tag">MC</span><span class="event-tag">Moderator</span></span>
-        </li>
-        <li>
-          <span class="event-year">May 2026</span>
-          <div><h3>Living on the Threshold of Global Crises</h3><p>Speaker and panelist · Pakistan</p></div>
-          <span class="event-tags"><span class="event-tag">Speaker</span><span class="event-tag">Panelist</span></span>
-        </li>
-        <li>
-          <span class="event-year">Dec 2025</span>
-          <div><h3>AEOC Finale Award Ceremony</h3><p>MC of the continental award ceremony, plus interviews for the African Earth Observation Challenge</p></div>
-          <span class="event-tags"><span class="event-tag">MC</span><span class="event-tag">Interviewer</span></span>
-        </li>
-        <li>
-          <span class="event-year">Dec 2025</span>
-          <div><h3>Kenya Space Innovation and Investment Forum</h3><p>Panel moderator</p></div>
-          <span class="event-tags"><span class="event-tag">Moderator</span></span>
-        </li>
-        <li>
-          <span class="event-year">Nov 2025</span>
-          <div><h3>Women in Space Kenya</h3><p>MC of the event and moderator of a panel session</p></div>
-          <span class="event-tags"><span class="event-tag">MC</span><span class="event-tag">Moderator</span></span>
-        </li>
-        <li>
-          <span class="event-year">Oct 2025</span>
-          <div><h3>World Space Week 2025 Industry Networking Event</h3><p>MC of the event</p></div>
-          <span class="event-tags"><span class="event-tag">MC</span></span>
-        </li>
-        <li>
-          <span class="event-year">Apr 2025</span>
-          <div><h3>70 Years After Bandung</h3><p>Talk: what cooperation and rivalry in outer space mean for the future of space exploration · Karachi, Pakistan</p></div>
-          <span class="event-tags"><span class="event-tag">Speaker</span></span>
-        </li>
-        <li>
-          <span class="event-year">2024</span>
-          <div><h3>Global Space Education Summit</h3><p>Panelist in the Young Professionals fireside chat, and gave a talk</p></div>
-          <span class="event-tags"><span class="event-tag">Panelist</span><span class="event-tag">Speaker</span></span>
-        </li>
-        <li>
-          <span class="event-year">2024</span>
-          <div><h3>Kenya Space Expo &amp; Conference</h3><p>Moderated a session</p></div>
-          <span class="event-tags"><span class="event-tag">Moderator</span></span>
-        </li>
-      </ul>
-      <p class="event-more">Plus many more events hosted, MC'd and moderated across Kenya. <a href="#contact">Book me for yours →</a> · <a href="rates.html">See rates →</a></p>
+    <!-- SPEAKING -->
+    <section id="stage" class="section">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Speaking &amp; hosting</p>
+          <h2>On stage</h2>
+          <p class="intro">From Nairobi to Karachi: national space expos, investment forums and international conferences.</p>
+        </header>
+        <!-- Newest first. To add an event, copy one <li> block. -->
+        <ol class="events">
+          <li class="reveal">
+            <span class="ev-date">2026</span>
+            <div class="ev-main"><h3>Global Data Festival</h3><p>MC'd a session and moderated a panel</p></div>
+            <span class="ev-role">MC · Moderator</span>
+          </li>
+          <li class="reveal">
+            <span class="ev-date">May 2026</span>
+            <div class="ev-main"><h3>Living on the Threshold of Global Crises</h3><p>Pakistan</p></div>
+            <span class="ev-role">Speaker · Panelist</span>
+          </li>
+          <li class="reveal">
+            <span class="ev-date">Dec 2025</span>
+            <div class="ev-main"><h3>AEOC Finale Award Ceremony</h3><p>Continental award ceremony, plus interviews for the African Earth Observation Challenge</p></div>
+            <span class="ev-role">MC · Interviewer</span>
+          </li>
+          <li class="reveal">
+            <span class="ev-date">Dec 2025</span>
+            <div class="ev-main"><h3>Kenya Space Innovation and Investment Forum</h3><p>Panel moderation</p></div>
+            <span class="ev-role">Moderator</span>
+          </li>
+          <li class="reveal">
+            <span class="ev-date">Nov 2025</span>
+            <div class="ev-main"><h3>Women in Space Kenya</h3><p>Hosted the event and moderated a panel session</p></div>
+            <span class="ev-role">MC · Moderator</span>
+          </li>
+          <li class="reveal">
+            <span class="ev-date">Oct 2025</span>
+            <div class="ev-main"><h3>World Space Week 2025 Industry Networking Event</h3><p>Hosted the event</p></div>
+            <span class="ev-role">MC</span>
+          </li>
+          <li class="reveal">
+            <span class="ev-date">Apr 2025</span>
+            <div class="ev-main"><h3>70 Years After Bandung</h3><p>Talk: what cooperation and rivalry in outer space mean for the future of space exploration · Karachi</p></div>
+            <span class="ev-role">Speaker</span>
+          </li>
+          <li class="reveal">
+            <span class="ev-date">2024</span>
+            <div class="ev-main"><h3>Global Space Education Summit</h3><p>Young Professionals fireside chat, plus a talk</p></div>
+            <span class="ev-role">Panelist · Speaker</span>
+          </li>
+          <li class="reveal">
+            <span class="ev-date">2024</span>
+            <div class="ev-main"><h3>Kenya Space Expo &amp; Conference</h3><p>Moderated a session</p></div>
+            <span class="ev-role">Moderator</span>
+          </li>
+        </ol>
+        <p class="events-more">Plus many more events hosted, MC'd and moderated across Kenya. <a href="rates.html" class="link-arrow">Book me for yours</a></p>
+      </div>
     </section>
 
     <!-- WRITING -->
-    <section id="writing" class="section reveal">
-      <div class="section-label">04 / Writing</div>
-      <h2>Space policy, in plain words</h2>
-      <p class="section-intro">Selected articles from <a href="https://traversingcosmos.wordpress.com/" target="_blank" rel="noopener">Traversing the Cosmos</a>, my blog on African space policy, sustainability, Earth observation and astronomy.</p>
-      <div class="articles stagger">
-        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2026/01/01/kenyas-evolving-space-sector-2025-end-of-year-review/" target="_blank" rel="noopener">
-          <img class="article-img" src="assets/articles/post-1.jpg" alt="" loading="lazy">
-          <span class="article-meta">Opinion · Jan 2026</span>
-          <h3>Kenya's evolving space sector: 2025 end-of-year review</h3>
-          <p>Of momentum, maturity and the hard work ahead: a year in which Kenya's space sector stopped trying to prove itself.</p>
-          <span class="article-link">Read on Traversing the Cosmos →</span>
-        </a>
-        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2025/11/13/kenya-has-quietly-built-the-foundation-to-become-east-africas-hub-for-space-innovation/" target="_blank" rel="noopener">
-          <img class="article-img" src="assets/articles/post-2.jpg" alt="" loading="lazy">
-          <span class="article-meta">Space law &amp; policy · Nov 2025</span>
-          <h3>Kenya has quietly built the foundation to become East Africa's hub for space innovation</h3>
-          <p>How small, deliberate steps turned into a trajectory that makes Kenya the region's most active space nation.</p>
-          <span class="article-link">Read on Traversing the Cosmos →</span>
-        </a>
-        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2025/06/13/why-smart-space-policy-is-kenyas-best-bet-for-global-space-leadership/" target="_blank" rel="noopener">
-          <img class="article-img" src="assets/articles/post-3.png" alt="" loading="lazy">
-          <span class="article-meta">Space law &amp; policy · Jun 2025</span>
-          <h3>Why smart space policy is Kenya's best bet for global space leadership</h3>
-          <p>Power in space used to mean the biggest rockets and budgets. That model is changing fast, and policy is the new lever.</p>
-          <span class="article-link">Read on Traversing the Cosmos →</span>
-        </a>
-        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2025/03/28/a-beginners-guide-to-understanding-eo-satellites-and-their-impact-on-africa/" target="_blank" rel="noopener">
-          <img class="article-img" src="assets/articles/post-4.jpg" alt="" loading="lazy">
-          <span class="article-meta">Earth observation · Mar 2025</span>
-          <h3>A beginner's guide to EO satellites and their impact on Africa</h3>
-          <p>Space isn't only the Moon and stars. Here's how Earth observation satellites shape everyday life across Africa.</p>
-          <span class="article-link">Read on Traversing the Cosmos →</span>
-        </a>
-        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2025/02/03/the-legal-foundations-of-kenyas-involvement-in-space-activities/" target="_blank" rel="noopener">
-          <img class="article-img" src="assets/articles/post-5.png" alt="" loading="lazy">
-          <span class="article-meta">Space law · Feb 2025</span>
-          <h3>The legal foundations of Kenya's involvement in space activities</h3>
-          <p>From the Luigi Broglio Space Centre in Malindi to today: the legal story behind Kenya's place in space.</p>
-          <span class="article-link">Read on Traversing the Cosmos →</span>
-        </a>
-        <a class="tilt article" href="https://traversingcosmos.wordpress.com/2024/12/09/space-sustainability-from-an-african-perspective/" target="_blank" rel="noopener">
-          <img class="article-img" src="assets/articles/post-6.png" alt="" loading="lazy">
-          <span class="article-meta">Sustainability · Dec 2024</span>
-          <h3>Space sustainability from an African perspective</h3>
-          <p>Space feels limitless, but it isn't. Why Africa has a stake in keeping orbit usable for everyone.</p>
-          <span class="article-link">Read on Traversing the Cosmos →</span>
-        </a>
-      </div>
-      <div class="writing-more">
-        <a href="https://traversingcosmos.wordpress.com/" class="btn btn-ghost" target="_blank" rel="noopener">All 37 articles on the blog →</a>
+    <section id="writing" class="section section-alt">
+      <div class="wrap">
+        <header class="section-head section-head-row">
+          <div>
+            <p class="eyebrow">Writing</p>
+            <h2>Space policy, in plain words</h2>
+            <p class="intro">Selected articles from my blog, <em>Traversing the Cosmos</em>.</p>
+          </div>
+          <a href="https://traversingcosmos.wordpress.com/" class="link-arrow" target="_blank" rel="noopener">All 37 articles</a>
+        </header>
+        <div class="articles">
+          <a class="article article-lead reveal" href="https://traversingcosmos.wordpress.com/2026/01/01/kenyas-evolving-space-sector-2025-end-of-year-review/" target="_blank" rel="noopener">
+            <img src="assets/articles/post-1.jpg" alt="" loading="lazy">
+            <div>
+              <p class="article-meta">Opinion · January 2026</p>
+              <h3>Kenya's evolving space sector: 2025 end-of-year review</h3>
+              <p>Of momentum, maturity and the hard work ahead: a year in which Kenya's space sector stopped trying to prove itself.</p>
+              <span class="link-arrow">Read article</span>
+            </div>
+          </a>
+          <a class="article reveal" href="https://traversingcosmos.wordpress.com/2025/11/13/kenya-has-quietly-built-the-foundation-to-become-east-africas-hub-for-space-innovation/" target="_blank" rel="noopener">
+            <img src="assets/articles/post-2.jpg" alt="" loading="lazy">
+            <p class="article-meta">Space law &amp; policy · Nov 2025</p>
+            <h3>Kenya has quietly built the foundation to become East Africa's hub for space innovation</h3>
+          </a>
+          <a class="article reveal" href="https://traversingcosmos.wordpress.com/2025/06/13/why-smart-space-policy-is-kenyas-best-bet-for-global-space-leadership/" target="_blank" rel="noopener">
+            <img src="assets/articles/post-3.png" alt="" loading="lazy">
+            <p class="article-meta">Space law &amp; policy · Jun 2025</p>
+            <h3>Why smart space policy is Kenya's best bet for global space leadership</h3>
+          </a>
+          <a class="article reveal" href="https://traversingcosmos.wordpress.com/2025/03/28/a-beginners-guide-to-understanding-eo-satellites-and-their-impact-on-africa/" target="_blank" rel="noopener">
+            <img src="assets/articles/post-4.jpg" alt="" loading="lazy">
+            <p class="article-meta">Earth observation · Mar 2025</p>
+            <h3>A beginner's guide to EO satellites and their impact on Africa</h3>
+          </a>
+          <a class="article reveal" href="https://traversingcosmos.wordpress.com/2025/02/03/the-legal-foundations-of-kenyas-involvement-in-space-activities/" target="_blank" rel="noopener">
+            <img src="assets/articles/post-5.png" alt="" loading="lazy">
+            <p class="article-meta">Space law · Feb 2025</p>
+            <h3>The legal foundations of Kenya's involvement in space activities</h3>
+          </a>
+          <a class="article reveal" href="https://traversingcosmos.wordpress.com/2024/12/09/space-sustainability-from-an-african-perspective/" target="_blank" rel="noopener">
+            <img src="assets/articles/post-6.png" alt="" loading="lazy">
+            <p class="article-meta">Sustainability · Dec 2024</p>
+            <h3>Space sustainability from an African perspective</h3>
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="section reveal">
-      <div class="section-label">05 / Experience</div>
-      <h2>Trajectory</h2>
-      <div class="exp-grid">
-        <ol class="timeline">
-          <li>
-            <span class="tl-date">Apr 2026 to now</span>
-            <h3>Marketing &amp; Communications Specialist · RIIS</h3>
-            <p>Thought leadership, content strategy and stakeholder communications across space, mining, energy, health and financial services. Built the communications strategy and editorial calendar for the African Earth Observation Challenge (AEOC), covering four regional finals, its 10-year anniversary, the AEOC Pulse newsletter and AEOC Junior.</p>
+    <section id="experience" class="section">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Experience</p>
+          <h2>Career</h2>
+        </header>
+        <ol class="jobs">
+          <li class="reveal">
+            <span class="job-date">Apr 2026 – present</span>
+            <div>
+              <h3>Marketing &amp; Communications Specialist</h3>
+              <p class="job-org">Research Institute for Innovation and Sustainability (RIIS)</p>
+              <p>Thought leadership, content strategy and stakeholder communications across space, mining, energy, health and financial services. Built the communications strategy and editorial calendar for the African Earth Observation Challenge (AEOC), covering four regional finals, its 10-year anniversary, the AEOC Pulse newsletter and AEOC Junior.</p>
+            </div>
           </li>
-          <li>
-            <span class="tl-date">Feb 2025 to Mar 2026</span>
-            <h3>Communications Officer · Digital Earth Africa</h3>
-            <p>Supported the continental communication strategy on Earth observation data. Ran Mailchimp newsletters, WordPress and Drupal sites, and tracked performance with Hootsuite and Google Analytics.</p>
+          <li class="reveal">
+            <span class="job-date">Feb 2025 – Mar 2026</span>
+            <div>
+              <h3>Communications Officer</h3>
+              <p class="job-org">Digital Earth Africa</p>
+              <p>Supported the continental communication strategy on Earth observation data. Ran Mailchimp newsletters, WordPress and Drupal sites, and tracked performance with Hootsuite and Google Analytics.</p>
+            </div>
           </li>
-          <li>
-            <span class="tl-date">Oct 2023 to Feb 2025</span>
-            <h3>Corporate Communications Officer · Kenya Space Agency</h3>
-            <p>Led communication on Kenya's space activities and international engagements: newsletters, press releases, graphics, videos and policy briefs. Supported public participation on the Kenya Space Bill and national space policy. Moderated at the Kenya Space Expo &amp; Conference and on national panels.</p>
+          <li class="reveal">
+            <span class="job-date">Oct 2023 – Feb 2025</span>
+            <div>
+              <h3>Corporate Communications Officer</h3>
+              <p class="job-org">Kenya Space Agency</p>
+              <p>Led communication on Kenya's space activities and international engagements: newsletters, press releases, graphics, videos and policy briefs. Supported public participation on the Kenya Space Bill and national space policy. Moderated at the Kenya Space Expo &amp; Conference and on national panels.</p>
+            </div>
           </li>
-          <li>
-            <span class="tl-date">Jan 2023 to Oct 2023</span>
-            <h3>Science Communicator · Leo Sky Africa</h3>
-            <p>Created science content to improve public understanding of space and astronomy, and supported outreach and educational campaigns.</p>
+          <li class="reveal">
+            <span class="job-date">Jan 2023 – Oct 2023</span>
+            <div>
+              <h3>Science Communicator</h3>
+              <p class="job-org">Leo Sky Africa</p>
+              <p>Created science content to improve public understanding of space and astronomy, and supported outreach and educational campaigns.</p>
+            </div>
           </li>
         </ol>
-
-        <aside class="side stagger">
-          <div class="side-block">
+        <div class="extras reveal">
+          <div>
             <h3>Also</h3>
-            <ul>
-              <li><strong>Community astronomy outreach</strong><span>Amateur Astronomical Society of Kenya · 2022 to 2023</span></li>
-              <li><strong>Creator &amp; brand lead, @thetryingathlete</strong><span>Outdoor adventure content brand · Grit &amp; Groundtruthing</span></li>
-            </ul>
+            <p>Community astronomy outreach, Amateur Astronomical Society of Kenya (2022–2023). Creator and brand lead of @thetryingathlete, an outdoor adventure content brand.</p>
           </div>
-          <div class="side-block">
+          <div>
             <h3>Tools</h3>
-            <p class="tags"><span>WordPress</span><span>Drupal</span><span>Mailchimp</span><span>Hootsuite</span><span>Google Analytics</span></p>
+            <p>WordPress · Drupal · Mailchimp · Hootsuite · Google Analytics</p>
           </div>
-        </aside>
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section contact reveal">
-      <div class="section-label">06 / Contact</div>
-      <h2>Need a voice for your mission?</h2>
-      <p class="section-intro">Available for MC and moderation bookings, communication strategy, PR and commissioned writing, in Nairobi and beyond.</p>
-      <a class="contact-email" href="mailto:jhnmrkochieng@gmail.com">jhnmrkochieng@gmail.com</a>
-      <ul class="socials">
-        <li><a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://traversingcosmos.wordpress.com/" target="_blank" rel="noopener">Blog</a></li>
-        <li><a href="https://www.instagram.com/thetryingathlete" target="_blank" rel="noopener">Instagram</a></li>
-      </ul>
+    <section id="contact" class="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="eyebrow eyebrow-light">Contact</p>
+          <h2>Planning an event or a campaign?</h2>
+          <p class="intro">Available for MC and moderation bookings, communication strategy, PR and commissioned writing, in Nairobi and beyond.</p>
+        </div>
+        <div class="contact-card">
+          <a class="contact-email" href="mailto:jhnmrkochieng@gmail.com">jhnmrkochieng@gmail.com</a>
+          <div class="contact-actions">
+            <a href="rates.html" class="btn btn-accent">Rates &amp; quote</a>
+            <a href="https://www.linkedin.com/in/your-profile" class="btn btn-ghost-light" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://traversingcosmos.wordpress.com/" class="btn btn-ghost-light" target="_blank" rel="noopener">Blog</a>
+            <a href="https://www.instagram.com/thetryingathlete" class="btn btn-ghost-light" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Johnmark Ochieng · Nairobi, Kenya</p>
-    <a href="#top">Back to top ↑</a>
+    <div class="wrap footer-inner">
+      <p>© <span id="year"></span> Johnmark Ochieng · Nairobi, Kenya</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
   </footer>
 
   <script src="main.js"></script>

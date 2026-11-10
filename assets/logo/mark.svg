@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Johnmark Ochieng logo">
+  <defs><clipPath id="mk-front"><rect x="0" y="17" width="48" height="31"/></clipPath></defs>
+  <ellipse cx="24" cy="17" rx="19" ry="5.5" fill="none" stroke="#d9481c" stroke-width="2.4" transform="rotate(-16 24 17)"/>
+  <rect x="16.5" y="4" width="15" height="25" rx="7.5" fill="currentColor"/>
+  <g clip-path="url(#mk-front)">
+    <ellipse cx="24" cy="17" rx="19" ry="5.5" fill="none" stroke="#d9481c" stroke-width="2.4" transform="rotate(-16 24 17)"/>
+  </g>
+  <circle cx="41.2" cy="12.4" r="2.4" fill="#d9481c"/>
+  <path d="M11.5 23.5a12.5 12.5 0 0 0 25 0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M24 36v7M17.5 44h13" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+</svg>
