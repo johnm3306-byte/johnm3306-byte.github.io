@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rates &amp; Booking · Johnmark Ochieng</title>
+  <meta name="description" content="Rates for MCing, panel moderation and talks by Johnmark Ochieng, Nairobi. Get an instant estimate and request a quote.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="rates-page">
+  <div class="stars" aria-hidden="true"></div>
+  <canvas id="space" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="index.html" class="logo">JO<span>.</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav id="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#stage">On stage</a>
+      <a href="index.html#writing">Writing</a>
+      <a href="rates.html" class="active" aria-current="page">Rates</a>
+      <a href="#quote" class="nav-cta">Get a quote</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="rates-hero">
+      <a href="index.html" class="back-link">← Back to main site</a>
+      <p class="eyebrow">Rates &amp; booking · 2026</p>
+      <h1 class="split">A voice for your <em>stage.</em></h1>
+      <p class="lede">Clear pricing for MCing, panel moderation and talks. Every booking includes the preparation that makes a session feel effortless: briefings, speaker research and a tight run of show.</p>
+    </section>
+
+    <!-- RATE CARDS -->
+    <section class="section reveal" id="rates">
+      <div class="section-label">01 / Rates</div>
+      <h2>Rate card</h2>
+      <p class="section-intro">Prices in Kenya shillings (KES). Half day is up to 4 hours on stage; full day is up to 9 hours.</p>
+      <div class="rate-grid stagger">
+        <article class="tilt rate-card">
+          <h3>Master of Ceremonies</h3>
+          <p class="rate-desc">Event flow, introductions, transitions and keeping the room's energy up from opening to close.</p>
+          <div class="rate-prices">
+            <div><span>Half day</span><strong>20,000</strong></div>
+            <div><span>Full day</span><strong>35,000</strong></div>
+          </div>
+        </article>
+        <article class="tilt rate-card">
+          <h3>Panel moderator</h3>
+          <p class="rate-desc">Topic research, question design, speaker prep call, time-keeping and audience Q&amp;A.</p>
+          <div class="rate-prices">
+            <div><span>Per panel</span><strong>20,000</strong></div>
+            <div><span>Full day</span><strong>45,000</strong></div>
+          </div>
+        </article>
+        <article class="tilt rate-card rate-card-best">
+          <span class="rate-badge">Best value</span>
+          <h3>MC + moderator</h3>
+          <p class="rate-desc">One voice anchoring the whole event: hosting the programme and moderating its panels.</p>
+          <div class="rate-prices">
+            <div><span>Half day</span><strong>35,000</strong></div>
+            <div><span>Full day</span><strong>60,000</strong></div>
+          </div>
+        </article>
+        <article class="tilt rate-card">
+          <h3>Talk or keynote</h3>
+          <p class="rate-desc">A talk on space policy, Africa's space sector, Earth observation or science communication.</p>
+          <div class="rate-prices">
+            <div><span>Per talk</span><strong>25,000</strong></div>
+            <div><span>Panelist</span><strong>15,000</strong></div>
+          </div>
+        </article>
+      </div>
+      <p class="rate-note"><strong>Multi-day events:</strong> 10% off every day after the first.</p>
+    </section>
+
+    <!-- INCLUDED + ADD-ONS -->
+    <section class="section reveal">
+      <div class="section-label">02 / What you get</div>
+      <div class="incl-grid">
+        <div>
+          <h2>Always included</h2>
+          <ul class="check-list stagger">
+            <li>Pre-event briefing call with your team</li>
+            <li>Run-of-show review and timing advice</li>
+            <li>Research on speakers and topics for one panel</li>
+            <li>Hosting in English, Kiswahili or both</li>
+            <li>Coordination with your AV and production crew on the day</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Add-ons</h2>
+          <ul class="addon-list stagger">
+            <li><span>Full script / run-of-show writing</span><strong>10,000</strong></li>
+            <li><span>Rehearsal or venue walk-through</span><strong>7,500</strong></li>
+            <li><span>Each extra panel researched</span><strong>5,000</strong></li>
+            <li><span>Post-event recap article or social posts</span><strong>15,000</strong></li>
+            <li><span>Travel outside Nairobi</span><strong>At cost</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTIMATOR -->
+    <section class="section reveal" id="quote">
+      <div class="section-label">03 / Estimate</div>
+      <h2>Build your quote</h2>
+      <p class="section-intro">Pick what you need and see an instant estimate. Send it to me and I'll confirm availability within 48 hours.</p>
+
+      <form class="estimator" id="estimator" onsubmit="return false">
+        <div class="est-controls">
+          <fieldset>
+            <legend>Service</legend>
+            <div class="seg" id="service">
+              <label><input type="radio" name="service" value="mc" checked><span>MC</span></label>
+              <label><input type="radio" name="service" value="mod"><span>Moderator</span></label>
+              <label><input type="radio" name="service" value="combo"><span>MC + moderator</span></label>
+              <label><input type="radio" name="service" value="talk"><span>Talk</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset id="format-field">
+            <legend>Length</legend>
+            <div class="seg" id="format">
+              <label><input type="radio" name="format" value="half"><span id="half-label">Half day</span></label>
+              <label><input type="radio" name="format" value="full" checked><span>Full day</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset id="days-field">
+            <legend id="days-legend">Number of days</legend>
+            <div class="stepper">
+              <button type="button" id="minus" aria-label="Fewer">−</button>
+              <output id="days">1</output>
+              <button type="button" id="plus" aria-label="More">+</button>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Add-ons</legend>
+            <div class="addons">
+              <label><input type="checkbox" value="script"><span>Script writing <em>+10,000</em></span></label>
+              <label><input type="checkbox" value="rehearsal"><span>Rehearsal <em>+7,500</em></span></label>
+              <label><input type="checkbox" value="panel"><span>Extra panel research <em>+5,000</em></span></label>
+              <label><input type="checkbox" value="recap"><span>Recap content <em>+15,000</em></span></label>
+              <label><input type="checkbox" value="travel"><span>Event outside Nairobi <em>at cost</em></span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <aside class="est-summary" aria-live="polite">
+          <p class="est-label">Estimated fee</p>
+          <p class="est-total"><span>KES</span> <strong id="total">35,000</strong></p>
+          <ul class="est-lines" id="lines"></ul>
+          <a class="btn btn-primary est-send" id="send" href="mailto:jhnmrkochieng@gmail.com">Send me this quote →</a>
+          <p class="est-fine">An estimate, not an invoice. Final quote depends on date, programme and location.</p>
+        </aside>
+      </form>
+    </section>
+
+    <!-- TERMS -->
+    <section class="section reveal">
+      <div class="section-label">04 / Terms</div>
+      <h2>Booking terms</h2>
+      <div class="terms stagger">
+        <div><h3>Confirming</h3><p>A 50% deposit secures your date. The balance is due within 14 days after the event.</p></div>
+        <div><h3>Payment</h3><p>Bank transfer or M-Pesa. Invoices are issued on confirmation.</p></div>
+        <div><h3>Changes</h3><p>Free rescheduling with 14 days' notice. Cancellations within 7 days of the event forfeit the deposit.</p></div>
+        <div><h3>Fine print</h3><p>Rates exclude applicable taxes and are valid to 31 December 2026. Student, community and non-profit events: ask about reduced rates.</p></div>
+      </div>
+    </section>
+
+    <section class="section contact reveal">
+      <h2>Have a date in mind?</h2>
+      <p class="section-intro">Tell me about your event and I'll come back with availability and a firm quote.</p>
+      <a class="contact-email" href="mailto:jhnmrkochieng@gmail.com?subject=Booking%20enquiry">jhnmrkochieng@gmail.com</a>
+      <ul class="socials">
+        <li><a href="index.html#stage">See past events</a></li>
+        <li><a href="index.html">Main site</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Johnmark Ochieng · Nairobi, Kenya</p>
+    <a href="#">Back to top ↑</a>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="rates.js"></script>
+</body>
+</html>
