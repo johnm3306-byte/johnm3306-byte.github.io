@@ -124,6 +124,8 @@ main { overflow-x: clip; }
 .split-grid .section-head { margin: 0; position: sticky; top: 110px; }
 .body-lg { font-family: var(--serif); font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.45; color: var(--ink); }
 .split-grid p:not(.body-lg):not(.eyebrow) { color: var(--muted); }
+.split-grid p a, .extras p a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.split-grid p a:hover, .extras p a:hover { color: var(--accent); }
 .facts { margin: 32px 0 0; border-top: 1px solid var(--line); }
 .facts div { display: grid; grid-template-columns: 140px 1fr; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .facts dt { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
