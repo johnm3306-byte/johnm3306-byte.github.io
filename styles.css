@@ -80,7 +80,7 @@ main { overflow-x: clip; }
 .hero h1 em { color: var(--accent); }
 .lede { font-size: clamp(1.08rem, 1.6vw, 1.25rem); color: var(--muted); max-width: 30rem; margin-bottom: 34px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero-photo { position: relative; margin: 0 48px 0 auto; width: 100%; max-width: 420px; aspect-ratio: 349 / 577; }
+.hero-photo { position: relative; margin: 0 48px 0 auto; width: 100%; max-width: 420px; aspect-ratio: 952 / 1603; }
 .hero-arch { position: absolute; top: 15%; left: -7%; right: -7%; bottom: 0; background: radial-gradient(120% 80% at 50% 30%, var(--ink-2), var(--ink)); border-radius: 999px 999px 0 0; z-index: 0; }
 .hero-cutout { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; z-index: 2;
   -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent 99%); mask-image: linear-gradient(to bottom, #000 76%, transparent 99%); }
