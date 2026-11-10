@@ -51,19 +51,32 @@
           </div>
         </div>
         <figure class="hero-photo">
-          <svg class="hero-orbit orbit-back" viewBox="0 0 400 400" aria-hidden="true">
-            <defs><clipPath id="orbit-clip-back"><rect x="-50" y="-50" width="500" height="235"/></clipPath></defs>
-            <g transform="rotate(-18 200 185)" clip-path="url(#orbit-clip-back)">
-              <path class="orbit-path" d="M10 185a190 70 0 1 0 380 0a190 70 0 1 0 -380 0"/>
-              <circle class="orbit-sat" r="6"><animateMotion dur="20s" repeatCount="indefinite" path="M10 185a190 70 0 1 0 380 0a190 70 0 1 0 -380 0"/></circle>
+          <div class="hero-arch" aria-hidden="true"></div>
+          <svg class="hero-orbit orbit-back" viewBox="0 0 400 200" aria-hidden="true">
+            <defs><clipPath id="orbit-clip-back"><rect x="-60" y="-60" width="520" height="160"/></clipPath></defs>
+            <g transform="rotate(-12 200 100)" clip-path="url(#orbit-clip-back)">
+              <path class="orbit-path" d="M10 100a190 46 0 1 0 380 0a190 46 0 1 0 -380 0"/>
+              <g class="orbit-sat">
+                <animateMotion dur="22s" repeatCount="indefinite" rotate="auto" path="M10 100a190 46 0 1 0 380 0a190 46 0 1 0 -380 0"/>
+                <rect x="-19" y="-4" width="12" height="8" class="sat-panel"/><rect x="7" y="-4" width="12" height="8" class="sat-panel"/>
+                <path d="M-13 -4v8M13 -4v8" class="sat-grid"/>
+                <rect x="-6" y="-5" width="12" height="10" rx="1.5" class="sat-body"/>
+                <path d="M0 -5v-5" class="sat-mast"/><path d="M-5 -13a5 3.5 0 0 0 10 0z" class="sat-dish"/>
+              </g>
             </g>
           </svg>
-          <img src="assets/johnmark-speaking.jpg" alt="Johnmark Ochieng speaking at a podium" width="1024" height="683">
-          <svg class="hero-orbit orbit-front" viewBox="0 0 400 400" aria-hidden="true">
-            <defs><clipPath id="orbit-clip-front"><rect x="-50" y="185" width="500" height="265"/></clipPath></defs>
-            <g transform="rotate(-18 200 185)" clip-path="url(#orbit-clip-front)">
-              <path class="orbit-path" d="M10 185a190 70 0 1 0 380 0a190 70 0 1 0 -380 0"/>
-              <circle class="orbit-sat" r="6"><animateMotion dur="20s" repeatCount="indefinite" path="M10 185a190 70 0 1 0 380 0a190 70 0 1 0 -380 0"/></circle>
+          <img class="hero-cutout" src="assets/johnmark-cutout.webp" alt="Johnmark Ochieng speaking" width="349" height="577">
+          <svg class="hero-orbit orbit-front" viewBox="0 0 400 200" aria-hidden="true">
+            <defs><clipPath id="orbit-clip-front"><rect x="-60" y="100" width="520" height="160"/></clipPath></defs>
+            <g transform="rotate(-12 200 100)" clip-path="url(#orbit-clip-front)">
+              <path class="orbit-path" d="M10 100a190 46 0 1 0 380 0a190 46 0 1 0 -380 0"/>
+              <g class="orbit-sat">
+                <animateMotion dur="22s" repeatCount="indefinite" rotate="auto" path="M10 100a190 46 0 1 0 380 0a190 46 0 1 0 -380 0"/>
+                <rect x="-19" y="-4" width="12" height="8" class="sat-panel"/><rect x="7" y="-4" width="12" height="8" class="sat-panel"/>
+                <path d="M-13 -4v8M13 -4v8" class="sat-grid"/>
+                <rect x="-6" y="-5" width="12" height="10" rx="1.5" class="sat-body"/>
+                <path d="M0 -5v-5" class="sat-mast"/><path d="M-5 -13a5 3.5 0 0 0 10 0z" class="sat-dish"/>
+              </g>
             </g>
           </svg>
         </figure>
