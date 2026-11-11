@@ -81,6 +81,8 @@ section[id] { scroll-margin-top: 80px; }
 .glow::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity var(--base); pointer-events: none;
   background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(232, 82, 31, 0.22), transparent 60%); }
 .glow:hover::before { opacity: 1; }
+.card.glow:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); border-color: rgba(232, 82, 31, 0.4); }
+.card.glow::before { background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(232, 82, 31, 0.08), transparent 60%); }
 .card-dark:hover { border-color: rgba(232, 82, 31, 0.45); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35); }
 
 /* ---------- Scroll progress + back to top ---------- */
@@ -174,12 +176,12 @@ html:not(.js) .role-rotator span:first-child { transform: none; opacity: 1; }
 html:not(.js) .trust-list { flex-wrap: wrap; }
 
 /* ---------- Stats ---------- */
-.stats { padding: 56px 0 80px; }
+.stats { padding: 72px 0 24px; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 .stat { padding: 28px 24px; }
-.stat strong { display: block; font-family: var(--serif); font-weight: 500; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1; margin-bottom: 10px; color: var(--white); font-variant-numeric: tabular-nums; }
+.stat strong { display: block; font-family: var(--serif); font-weight: 500; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1; margin-bottom: 10px; color: var(--ink); font-variant-numeric: tabular-nums; }
 .stat strong::after { content: ""; display: block; width: 32px; height: 3px; margin-top: 14px; border-radius: 2px; background: var(--accent); }
-.stat span { font-size: 0.92rem; color: var(--muted-dark); }
+.stat span { font-size: 0.92rem; color: var(--muted); }
 
 /* ---------- Sections ---------- */
 .section { position: relative; padding: 110px 0; }
@@ -258,22 +260,23 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 /* ---------- Experience: mission log ---------- */
 .jobs { position: relative; list-style: none; margin: 0; padding: 0 0 0 44px; }
 .jobs::before, .jobs::after { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; border-radius: 2px; }
-.jobs::before { background: var(--line-dark); }
+.jobs::before { background: var(--line); }
 .jobs::after { background: linear-gradient(var(--accent), var(--accent-soft)); transform-origin: top; transform: scaleY(var(--progress, 0)); }
 .job { position: relative; margin-bottom: 18px; }
-.job-node { position: absolute; left: -44px; top: 26px; width: 24px; height: 24px; border-radius: 50%; background: var(--ink); border: 2px solid var(--line-dark); transition: border-color var(--base), box-shadow var(--base); }
-.job-node::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: var(--line-dark); transition: background var(--base); }
+.job-node { position: absolute; left: -44px; top: 26px; width: 24px; height: 24px; border-radius: 50%; background: var(--white); border: 2px solid var(--line); transition: border-color var(--base), box-shadow var(--base); }
+.job-node::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: var(--line); transition: background var(--base); }
 .job.is-reached .job-node { border-color: var(--accent); box-shadow: 0 0 0 6px rgba(232, 82, 31, 0.15), 0 0 20px rgba(232, 82, 31, 0.5); }
 .job.is-reached .job-node::after { background: var(--accent); }
 .job-card { padding: 26px 28px; }
-.job-card:hover { transform: translateX(6px); }
-.job-date { display: inline-block; font-size: 0.75rem; letter-spacing: 0.06em; color: var(--sky); margin-bottom: 10px; }
+.js .job-card.glow:hover, .job-card:hover { transform: translateX(6px); }
+.job-card p:not(.job-org) { color: var(--muted); }
+.job-date { display: inline-block; font-size: 0.75rem; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 10px; }
 .jobs h3 { font-size: 1.45rem; margin: 0 0 2px; }
-.dark .job-org { color: var(--accent-soft); font-weight: 600; font-size: 0.95rem; margin: 0 0 10px; }
+.job-org { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin: 0 0 10px; }
 .job-card p:last-child { margin: 0; }
 .extras { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
 .extras > div { padding: 22px 24px; }
-.extras h3 { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-soft); }
+.extras h3 { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
 .dark .extras p { margin: 0; color: #d7e0ee; }
 
 /* ---------- Contact ---------- */
