@@ -38,14 +38,14 @@
     function animated() { return !reduceMotion && !small.matches; }
 
     function makeStars() {
-      var count = reduceMotion ? 24 : small.matches ? 18 : 48;
+      var count = reduceMotion ? 24 : small.matches ? 22 : 60;
       stars = [];
       for (var i = 0; i < count; i++) {
         stars.push({
           x: Math.random() * w,
           y: Math.random() * h,
           r: (0.5 + Math.random() * 0.5) * dpr,          // 1 to 2px dots
-          a: reduceMotion ? 0.12 : 0.14 + Math.random() * 0.22,
+          a: reduceMotion ? 0.14 : 0.2 + Math.random() * 0.3,
           tint: Math.random() < 0.15 ? ACCENT : SLATE,
           phase: Math.random() * Math.PI * 2,
           speed: 0.0004 + Math.random() * 0.0006,         // twinkle speed
@@ -80,15 +80,16 @@
     }
 
     /* One shooting star at a time, long random gaps, smooth fade in and out. */
-    function scheduleShot(now) { nextShot = now + 6000 + Math.random() * 14000; }
+    function scheduleShot(now) { nextShot = now + 5000 + Math.random() * 7000; }
 
     function launch() {
       var angle = (200 + Math.random() * 14) * Math.PI / 180;  // shallow diagonal, down-left
       shooter = {
-        x: w * (0.35 + Math.random() * 0.6),
-        y: h * (0.04 + Math.random() * 0.4),
+        x: w * (0.3 + Math.random() * 0.28),          // open space over and above the text,
+        y: h * (0.03 + Math.random() * 0.27),         // clear of the photo
+
         dx: Math.cos(angle), dy: -Math.sin(angle),
-        len: (80 + Math.random() * 120) * dpr,
+        len: (120 + Math.random() * 100) * dpr,
         dist: (260 + Math.random() * 220) * dpr,
         dur: 1100 + Math.random() * 700,
         start: performance.now()
@@ -105,10 +106,10 @@
       var hy = shooter.y + shooter.dy * shooter.dist * ease;
       var tx = hx - shooter.dx * shooter.len, ty = hy - shooter.dy * shooter.len;
       var g = ctx.createLinearGradient(hx, hy, tx, ty);
-      g.addColorStop(0, "rgba(" + ACCENT + "," + (0.45 * fade).toFixed(3) + ")");
+      g.addColorStop(0, "rgba(" + ACCENT + "," + (0.5 * fade).toFixed(3) + ")");
       g.addColorStop(1, "rgba(" + ACCENT + ",0)");
       ctx.strokeStyle = g;
-      ctx.lineWidth = 1.2 * dpr;
+      ctx.lineWidth = 1.5 * dpr;
       ctx.lineCap = "round";
       ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(tx, ty); ctx.stroke();
     }
