@@ -13,13 +13,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="motion.css">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <header class="nav">
     <div class="nav-inner">
       <a href="#top" class="logo" aria-label="Johnmark Ochieng, home">
@@ -34,33 +35,34 @@
         <a href="#writing">Writing</a>
         <a href="#experience">Experience</a>
         <a href="rates.html">Rates</a>
-        <a href="#contact" class="btn btn-dark btn-sm">Book Johnmark</a>
+        <a href="#contact" class="btn btn-accent btn-sm">Book Johnmark</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <canvas class="hero-sky" aria-hidden="true"></canvas>
+    <!-- HERO: dark, live starfield -->
+    <section class="hero dark">
+      <canvas class="sky" data-interactive aria-hidden="true"></canvas>
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="kicker">Space communication · MC &amp; moderation · Space policy</p>
+          <p class="kicker"><span class="kicker-dot" aria-hidden="true"></span>Space communication · MC &amp; moderation · Space policy</p>
           <h1>Making space <em>make sense.</em></h1>
+          <p class="hero-roles" aria-hidden="true"><span class="mono">On air as</span> <span class="role-rotator"><span>MC</span><span>Moderator</span><span>Space writer</span><span>Speaker</span><span>Strategist</span></span></p>
           <p class="lede">I'm Johnmark Ochieng, a Nairobi-based communications specialist, MC and moderator for Africa's space and Earth observation sector. I host events, moderate panels and write about space, with an interest in policy, while making complex space science easy to understand.</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-dark">Book me for your event</a>
-            <a href="rates.html" class="btn btn-line">View rate card</a>
+            <a href="#contact" class="btn btn-accent">Book me for your event</a>
+            <a href="rates.html" class="btn btn-ghost">View rate card</a>
           </div>
         </div>
         <figure class="hero-photo">
-          <div class="hero-arch" aria-hidden="true"></div>
+          <div class="planet" aria-hidden="true"></div>
           <svg class="hero-orbit orbit-back" viewBox="0 0 400 200" aria-hidden="true">
             <defs><clipPath id="orbit-clip-back"><rect x="-60" y="-60" width="520" height="160"/></clipPath></defs>
             <g transform="rotate(-12 200 100)" clip-path="url(#orbit-clip-back)">
               <path class="orbit-path" d="M10 100a190 46 0 1 0 380 0a190 46 0 1 0 -380 0"/>
               <g class="orbit-sat">
-                <animateMotion dur="22s" repeatCount="indefinite" rotate="auto" path="M10 100a190 46 0 1 0 380 0a190 46 0 1 0 -380 0"/>
+                <animateMotion dur="14s" repeatCount="indefinite" rotate="auto" path="M10 100a190 46 0 1 0 380 0a190 46 0 1 0 -380 0"/>
                 <rect x="-19" y="-4" width="12" height="8" class="sat-panel"/><rect x="7" y="-4" width="12" height="8" class="sat-panel"/>
                 <path d="M-13 -4v8M13 -4v8" class="sat-grid"/>
                 <rect x="-6" y="-5" width="12" height="10" rx="1.5" class="sat-body"/>
@@ -74,7 +76,7 @@
             <g transform="rotate(-12 200 100)" clip-path="url(#orbit-clip-front)">
               <path class="orbit-path" d="M10 100a190 46 0 1 0 380 0a190 46 0 1 0 -380 0"/>
               <g class="orbit-sat">
-                <animateMotion dur="22s" repeatCount="indefinite" rotate="auto" path="M10 100a190 46 0 1 0 380 0a190 46 0 1 0 -380 0"/>
+                <animateMotion dur="14s" repeatCount="indefinite" rotate="auto" path="M10 100a190 46 0 1 0 380 0a190 46 0 1 0 -380 0"/>
                 <rect x="-19" y="-4" width="12" height="8" class="sat-panel"/><rect x="7" y="-4" width="12" height="8" class="sat-panel"/>
                 <path d="M-13 -4v8M13 -4v8" class="sat-grid"/>
                 <rect x="-6" y="-5" width="12" height="10" rx="1.5" class="sat-body"/>
@@ -82,15 +84,17 @@
               </g>
             </g>
           </svg>
+          <span class="photo-tag mono" aria-hidden="true">Nairobi · 1.29°S 36.82°E</span>
         </figure>
       </div>
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
     </section>
 
-    <!-- CREDIBILITY STRIP -->
-    <section class="trust">
-      <div class="wrap trust-rows">
-        <div class="trust-row">
-          <p class="trust-label">Worked with</p>
+    <!-- CREDIBILITY: two scrolling rows -->
+    <section class="trust dark-2">
+      <div class="trust-row">
+        <p class="trust-label mono">Worked with</p>
+        <div class="marquee">
           <ul class="trust-list">
             <li>Kenya Space Agency</li>
             <li>Digital Earth Africa</li>
@@ -100,8 +104,10 @@
             <li>Viffa Consult</li>
           </ul>
         </div>
-        <div class="trust-row">
-          <p class="trust-label">On stage at</p>
+      </div>
+      <div class="trust-row">
+        <p class="trust-label mono">On stage at</p>
+        <div class="marquee marquee-reverse">
           <ul class="trust-list">
             <li>Global Data Festival</li>
             <li>World Space Week</li>
@@ -114,38 +120,39 @@
     </section>
 
     <!-- STATS -->
-    <section class="stats">
+    <section class="stats dark">
       <div class="wrap stats-grid">
-        <div><strong data-count="4" data-suffix="+">4+</strong><span>years in space communication</span></div>
-        <div><strong data-count="10" data-suffix="+">10+</strong><span>events hosted, moderated or spoken at</span></div>
-        <div><strong data-count="37">37</strong><span>published articles</span></div>
-        <div><strong data-count="2">2</strong><span>countries on stage: Kenya and Pakistan</span></div>
+        <div class="stat card-dark glow" data-reveal><strong data-count="4" data-suffix="+">4+</strong><span>years in space communication</span></div>
+        <div class="stat card-dark glow" data-reveal><strong data-count="10" data-suffix="+">10+</strong><span>events hosted, moderated or spoken at</span></div>
+        <div class="stat card-dark glow" data-reveal><strong data-count="37">37</strong><span>published articles</span></div>
+        <div class="stat card-dark glow" data-reveal><strong data-count="2">2</strong><span>countries on stage: Kenya and Pakistan</span></div>
       </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section">
       <div class="wrap split-grid">
-        <header class="section-head">
+        <header class="section-head" data-reveal>
           <p class="eyebrow">About</p>
           <h2>Between the newsroom and the night sky.</h2>
         </header>
-        <div class="reveal">
+        <div data-reveal>
           <p class="body-lg">I'm a Marketing and Communications Specialist at the Research Institute for Innovation and Sustainability (RIIS). Before that I supported communications at Digital Earth Africa, the Kenya Space Agency and Leo Sky Africa.</p>
           <p>My background is in journalism, with training in African and global space policy. I care most about space sustainability, global space governance and helping the public see, understand and take part in Africa's growing space sector. Away from work I'm an amateur astronomer, run an outdoor adventure brand, <a href="https://www.instagram.com/thetryingathlete" target="_blank" rel="noopener">@thetryingathlete</a>, and write about life on the trail on <a href="https://medium.com/@intergalacticsage" target="_blank" rel="noopener">Medium</a>.</p>
           <dl class="facts">
-            <div><dt>Based in</dt><dd>Nairobi, Kenya</dd></div>
-            <div><dt>Languages</dt><dd>English, Kiswahili, German (basic)</dd></div>
-            <div><dt>Currently</dt><dd>RIIS · Marketing &amp; Communications</dd></div>
+            <div class="fact card"><dt>Based in</dt><dd>Nairobi, Kenya</dd></div>
+            <div class="fact card"><dt>Languages</dt><dd>English, Kiswahili, German (basic)</dd></div>
+            <div class="fact card"><dt>Currently</dt><dd>RIIS · Marketing &amp; Communications</dd></div>
           </dl>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="section section-alt">
+    <!-- SERVICES: dark cards -->
+    <section id="services" class="section dark">
+      <canvas class="sky sky-faint" aria-hidden="true"></canvas>
       <div class="wrap">
-        <header class="section-head section-head-row">
+        <header class="section-head section-head-row" data-reveal>
           <div>
             <p class="eyebrow">Services</p>
             <h2>How I can help</h2>
@@ -153,8 +160,11 @@
           <a href="rates.html" class="link-arrow">Rates &amp; booking</a>
         </header>
         <div class="services">
-          <article class="service reveal">
-            <span class="service-num">01</span>
+          <article class="service card-dark glow tilt" data-reveal>
+            <div class="service-top">
+              <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="17" y="5" width="14" height="23" rx="7"/><path d="M11 22a13 13 0 0 0 26 0M24 35v7M17 43h14M21 12h6M21 17h6"/></svg>
+              <span class="service-num mono">01</span>
+            </div>
             <h3>MCing &amp; event moderation</h3>
             <p>I enjoy bringing people together through good conversations. Whether it's a conference, a panel discussion, a corporate event or a policy dialogue, I help create an atmosphere where speakers feel comfortable, audiences stay engaged and conversations flow naturally.</p>
             <ul>
@@ -166,8 +176,11 @@
             </ul>
             <a href="rates.html" class="link-arrow">See rates &amp; get a quote</a>
           </article>
-          <article class="service reveal">
-            <span class="service-num">02</span>
+          <article class="service card-dark glow tilt" data-reveal>
+            <div class="service-top">
+              <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 6h17l9 9v27H12z"/><path d="M29 6v9h9M18 22h14M18 28h14M18 34h9"/></svg>
+              <span class="service-num mono">02</span>
+            </div>
             <h3>Content development</h3>
             <p>I turn complex subjects into content that people can understand, connect with and act on. My work spans space, science, technology and development, with a focus on making technical ideas accessible without losing what makes them important.</p>
             <ul>
@@ -179,8 +192,11 @@
             </ul>
             <a href="rates.html#content" class="link-arrow">See content rates</a>
           </article>
-          <article class="service reveal">
-            <span class="service-num">03</span>
+          <article class="service card-dark glow tilt" data-reveal>
+            <div class="service-top">
+              <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 20v8h6l14 9V11l-14 9z"/><path d="M14 28l3 11h5l-2-10M34 18a8 8 0 0 1 0 12M38 13a14 14 0 0 1 0 22"/></svg>
+              <span class="service-num mono">03</span>
+            </div>
             <h3>PR &amp; media support</h3>
             <p>Good communication also means knowing how to present an organisation's work to the outside world. I support organisations in preparing clear, well-positioned messages and communication materials for media engagement, events and public-facing activities.</p>
             <ul>
@@ -192,8 +208,11 @@
             </ul>
             <a href="rates.html#content" class="link-arrow">See PR &amp; media rates</a>
           </article>
-          <article class="service reveal">
-            <span class="service-num">04</span>
+          <article class="service card-dark glow tilt" data-reveal>
+            <div class="service-top">
+              <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M30 18l-4 8-8 4 4-8z"/><path d="M24 4v4M24 40v4M4 24h4M40 24h4"/></svg>
+              <span class="service-num mono">04</span>
+            </div>
             <h3>Communication strategy &amp; advisory</h3>
             <p>Sometimes the problem isn't a lack of content. It's a lack of direction. I work with organisations to clarify what they want to say, who they need to reach and how to communicate consistently. From developing a communication strategy to putting practical systems in place, the focus is on making communication purposeful and sustainable.</p>
             <ul>
@@ -209,58 +228,64 @@
       </div>
     </section>
 
-    <!-- SPEAKING -->
+    <!-- SPEAKING: filterable event cards -->
     <section id="stage" class="section">
       <div class="wrap">
-        <header class="section-head">
+        <header class="section-head" data-reveal>
           <p class="eyebrow">Speaking &amp; hosting</p>
           <h2>On stage</h2>
           <p class="intro">Events I've hosted, moderated or spoken at.</p>
         </header>
-        <!-- Newest first. To add an event, copy one <li> block. -->
+        <div class="filters" role="toolbar" aria-label="Filter events by role" data-reveal>
+          <button type="button" class="filter is-on" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter" data-filter="mc" aria-pressed="false">MC &amp; host</button>
+          <button type="button" class="filter" data-filter="moderator" aria-pressed="false">Moderator</button>
+          <button type="button" class="filter" data-filter="speaker" aria-pressed="false">Speaker &amp; panelist</button>
+        </div>
+        <!-- Newest first. To add an event, copy one <li> block and set data-roles. -->
         <ol class="events">
-          <li class="reveal">
-            <span class="ev-date">2026</span>
+          <li class="event card" data-roles="mc moderator" data-reveal>
+            <span class="ev-date mono">2026</span>
             <div class="ev-main"><h3>Global Data Festival</h3><p>MC'd a session and moderated a panel</p></div>
             <span class="ev-role">MC · Moderator</span>
           </li>
-          <li class="reveal">
-            <span class="ev-date">May 2026</span>
+          <li class="event card" data-roles="speaker" data-reveal>
+            <span class="ev-date mono">May 2026</span>
             <div class="ev-main"><h3>Living on the Threshold of Global Crises</h3><p>Pakistan</p></div>
             <span class="ev-role">Speaker · Panelist</span>
           </li>
-          <li class="reveal">
-            <span class="ev-date">Dec 2025</span>
+          <li class="event card" data-roles="mc" data-reveal>
+            <span class="ev-date mono">Dec 2025</span>
             <div class="ev-main"><h3>AEOC Finale Award Ceremony</h3><p>Continental award ceremony, plus interviews for the African Earth Observation Challenge</p></div>
             <span class="ev-role">MC · Interviewer</span>
           </li>
-          <li class="reveal">
-            <span class="ev-date">Dec 2025</span>
+          <li class="event card" data-roles="moderator" data-reveal>
+            <span class="ev-date mono">Dec 2025</span>
             <div class="ev-main"><h3>Kenya Space Innovation and Investment Forum</h3><p>Panel moderation</p></div>
             <span class="ev-role">Moderator</span>
           </li>
-          <li class="reveal">
-            <span class="ev-date">Nov 2025</span>
+          <li class="event card" data-roles="mc moderator" data-reveal>
+            <span class="ev-date mono">Nov 2025</span>
             <div class="ev-main"><h3>Women in Space Kenya</h3><p>Hosted the event and moderated a panel session</p></div>
             <span class="ev-role">MC · Moderator</span>
           </li>
-          <li class="reveal">
-            <span class="ev-date">Apr 2025</span>
+          <li class="event card" data-roles="speaker" data-reveal>
+            <span class="ev-date mono">Apr 2025</span>
             <div class="ev-main"><h3>70 Years After Bandung</h3><p>Talk: what cooperation and rivalry in outer space mean for the future of space exploration · Karachi</p></div>
             <span class="ev-role">Speaker</span>
           </li>
-          <li class="reveal">
-            <span class="ev-date">2024</span>
+          <li class="event card" data-roles="speaker" data-reveal>
+            <span class="ev-date mono">2024</span>
             <div class="ev-main"><h3>Global Space Education Summit</h3><p>Young Professionals fireside chat, plus a talk</p></div>
             <span class="ev-role">Panelist · Speaker</span>
           </li>
-          <li class="reveal">
-            <span class="ev-date">2024</span>
+          <li class="event card" data-roles="moderator" data-reveal>
+            <span class="ev-date mono">2024</span>
             <div class="ev-main"><h3>Kenya Space Expo &amp; Conference</h3><p>Moderated a session</p></div>
             <span class="ev-role">Moderator</span>
           </li>
-          <li class="reveal">
-            <span class="ev-date">Since 2023</span>
+          <li class="event card" data-roles="mc" data-reveal>
+            <span class="ev-date mono">Since 2023</span>
             <div class="ev-main"><h3>World Space Week</h3><p>Hosted World Space Week events and activities every year since 2023, including the 2025 Industry Networking Event</p></div>
             <span class="ev-role">Host · MC</span>
           </li>
@@ -269,10 +294,10 @@
       </div>
     </section>
 
-    <!-- WRITING -->
+    <!-- WRITING: article cards -->
     <section id="writing" class="section section-alt">
       <div class="wrap">
-        <header class="section-head section-head-row">
+        <header class="section-head section-head-row" data-reveal>
           <div>
             <p class="eyebrow">Writing</p>
             <h2>The space sector, in plain words</h2>
@@ -281,91 +306,106 @@
           <a href="https://traversingcosmos.wordpress.com/" class="link-arrow" target="_blank" rel="noopener">All 37 articles</a>
         </header>
         <div class="articles">
-          <a class="article article-lead reveal" href="https://traversingcosmos.wordpress.com/2026/01/01/kenyas-evolving-space-sector-2025-end-of-year-review/" target="_blank" rel="noopener">
-            <img src="assets/articles/post-1.jpg" alt="" loading="lazy">
-            <div>
-              <p class="article-meta">Opinion · January 2026</p>
+          <a class="article article-lead card" data-reveal href="https://traversingcosmos.wordpress.com/2026/01/01/kenyas-evolving-space-sector-2025-end-of-year-review/" target="_blank" rel="noopener">
+            <span class="img-frame"><img src="assets/articles/post-1.jpg" alt="" loading="lazy"></span>
+            <div class="article-body">
+              <p class="article-meta mono">Opinion · January 2026</p>
               <h3>Kenya's evolving space sector: 2025 end-of-year review</h3>
               <p>A look back at Kenya's space sector in 2025: what moved forward and what still needs work.</p>
               <span class="link-arrow">Read article</span>
             </div>
           </a>
-          <a class="article reveal" href="https://traversingcosmos.wordpress.com/2025/11/13/kenya-has-quietly-built-the-foundation-to-become-east-africas-hub-for-space-innovation/" target="_blank" rel="noopener">
-            <img src="assets/articles/post-2.jpg" alt="" loading="lazy">
-            <p class="article-meta">Space law &amp; policy · Nov 2025</p>
-            <h3>Kenya has quietly built the foundation to become East Africa's hub for space innovation</h3>
+          <a class="article card" data-reveal href="https://traversingcosmos.wordpress.com/2025/11/13/kenya-has-quietly-built-the-foundation-to-become-east-africas-hub-for-space-innovation/" target="_blank" rel="noopener">
+            <span class="img-frame"><img src="assets/articles/post-2.jpg" alt="" loading="lazy"></span>
+            <div class="article-body">
+              <p class="article-meta mono">Space law &amp; policy · Nov 2025</p>
+              <h3>Kenya has quietly built the foundation to become East Africa's hub for space innovation</h3>
+            </div>
           </a>
-          <a class="article reveal" href="https://traversingcosmos.wordpress.com/2025/06/13/why-smart-space-policy-is-kenyas-best-bet-for-global-space-leadership/" target="_blank" rel="noopener">
-            <img src="assets/articles/post-3.png" alt="" loading="lazy">
-            <p class="article-meta">Space law &amp; policy · Jun 2025</p>
-            <h3>Why smart space policy is Kenya's best bet for global space leadership</h3>
+          <a class="article card" data-reveal href="https://traversingcosmos.wordpress.com/2025/06/13/why-smart-space-policy-is-kenyas-best-bet-for-global-space-leadership/" target="_blank" rel="noopener">
+            <span class="img-frame"><img src="assets/articles/post-3.png" alt="" loading="lazy"></span>
+            <div class="article-body">
+              <p class="article-meta mono">Space law &amp; policy · Jun 2025</p>
+              <h3>Why smart space policy is Kenya's best bet for global space leadership</h3>
+            </div>
           </a>
-          <a class="article reveal" href="https://traversingcosmos.wordpress.com/2025/03/28/a-beginners-guide-to-understanding-eo-satellites-and-their-impact-on-africa/" target="_blank" rel="noopener">
-            <img src="assets/articles/post-4.jpg" alt="" loading="lazy">
-            <p class="article-meta">Earth observation · Mar 2025</p>
-            <h3>A beginner's guide to EO satellites and their impact on Africa</h3>
+          <a class="article card" data-reveal href="https://traversingcosmos.wordpress.com/2025/03/28/a-beginners-guide-to-understanding-eo-satellites-and-their-impact-on-africa/" target="_blank" rel="noopener">
+            <span class="img-frame"><img src="assets/articles/post-4.jpg" alt="" loading="lazy"></span>
+            <div class="article-body">
+              <p class="article-meta mono">Earth observation · Mar 2025</p>
+              <h3>A beginner's guide to EO satellites and their impact on Africa</h3>
+            </div>
           </a>
-          <a class="article reveal" href="https://traversingcosmos.wordpress.com/2025/02/03/the-legal-foundations-of-kenyas-involvement-in-space-activities/" target="_blank" rel="noopener">
-            <img src="assets/articles/post-5.png" alt="" loading="lazy">
-            <p class="article-meta">Space law · Feb 2025</p>
-            <h3>The legal foundations of Kenya's involvement in space activities</h3>
+          <a class="article card" data-reveal href="https://traversingcosmos.wordpress.com/2025/02/03/the-legal-foundations-of-kenyas-involvement-in-space-activities/" target="_blank" rel="noopener">
+            <span class="img-frame"><img src="assets/articles/post-5.png" alt="" loading="lazy"></span>
+            <div class="article-body">
+              <p class="article-meta mono">Space law · Feb 2025</p>
+              <h3>The legal foundations of Kenya's involvement in space activities</h3>
+            </div>
           </a>
-          <a class="article reveal" href="https://traversingcosmos.wordpress.com/2024/12/09/space-sustainability-from-an-african-perspective/" target="_blank" rel="noopener">
-            <img src="assets/articles/post-6.png" alt="" loading="lazy">
-            <p class="article-meta">Sustainability · Dec 2024</p>
-            <h3>Space sustainability from an African perspective</h3>
+          <a class="article card" data-reveal href="https://traversingcosmos.wordpress.com/2024/12/09/space-sustainability-from-an-african-perspective/" target="_blank" rel="noopener">
+            <span class="img-frame"><img src="assets/articles/post-6.png" alt="" loading="lazy"></span>
+            <div class="article-body">
+              <p class="article-meta mono">Sustainability · Dec 2024</p>
+              <h3>Space sustainability from an African perspective</h3>
+            </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section">
+    <!-- EXPERIENCE: mission log timeline -->
+    <section id="experience" class="section dark">
+      <canvas class="sky sky-faint" aria-hidden="true"></canvas>
       <div class="wrap">
-        <header class="section-head">
+        <header class="section-head" data-reveal>
           <p class="eyebrow">Experience</p>
           <h2>Career</h2>
         </header>
         <ol class="jobs">
-          <li class="reveal">
-            <span class="job-date">Apr 2026 – present</span>
-            <div>
+          <li class="job" data-reveal>
+            <span class="job-node" aria-hidden="true"></span>
+            <div class="job-card card-dark glow">
+              <span class="job-date mono">Apr 2026 – present</span>
               <h3>Marketing &amp; Communications Specialist</h3>
               <p class="job-org">Research Institute for Innovation and Sustainability (RIIS)</p>
               <p>Thought leadership, content strategy and stakeholder communications across space, mining, energy, health and financial services. Built the communications strategy and editorial calendar for the African Earth Observation Challenge (AEOC), covering its four regional finals, its 10-year anniversary and AEOC Junior. Produce marketing collateral, including brochures and credentials decks, as well as social media graphics and web pages.</p>
             </div>
           </li>
-          <li class="reveal">
-            <span class="job-date">Feb 2025 – Mar 2026</span>
-            <div>
+          <li class="job" data-reveal>
+            <span class="job-node" aria-hidden="true"></span>
+            <div class="job-card card-dark glow">
+              <span class="job-date mono">Feb 2025 – Mar 2026</span>
               <h3>Communications Officer</h3>
               <p class="job-org">Digital Earth Africa</p>
               <p>Digital Earth Africa provides free, analysis-ready satellite data for the whole continent, to support decisions on agriculture, water, climate and land use. I wrote articles, case studies and reports on how the data is being used, managed the website and social media channels, and produced design work.</p>
             </div>
           </li>
-          <li class="reveal">
-            <span class="job-date">Oct 2023 – Feb 2025</span>
-            <div>
+          <li class="job" data-reveal>
+            <span class="job-node" aria-hidden="true"></span>
+            <div class="job-card card-dark glow">
+              <span class="job-date mono">Oct 2023 – Feb 2025</span>
               <h3>Corporate Communications Officer</h3>
               <p class="job-org">Kenya Space Agency</p>
               <p>Part of the agency's communications team. With no head of communications in post, I led much of the day-to-day work informally: communication on Kenya's space activities and international engagements, including newsletters, press releases, graphics, videos and policy briefs. Supported public participation on the Kenya Space Bill and national space policy, and contributed to drafting the agency's strategic plan. Moderated at the Kenya Space Expo &amp; Conference and on national panels.</p>
             </div>
           </li>
-          <li class="reveal">
-            <span class="job-date">Jan 2023 – Oct 2023</span>
-            <div>
+          <li class="job" data-reveal>
+            <span class="job-node" aria-hidden="true"></span>
+            <div class="job-card card-dark glow">
+              <span class="job-date mono">Jan 2023 – Oct 2023</span>
               <h3>Science Communicator</h3>
               <p class="job-org">Leo Sky Africa</p>
               <p>Created science content to improve public understanding of space and astronomy, and supported outreach and educational campaigns.</p>
             </div>
           </li>
         </ol>
-        <div class="extras reveal">
-          <div>
+        <div class="extras">
+          <div class="card-dark" data-reveal>
             <h3>Also</h3>
             <p>Community astronomy outreach, Amateur Astronomical Society of Kenya (2022–2023). Creator and brand lead of @thetryingathlete, an outdoor adventure content brand. Personal essays on hiking and the outdoors on <a href="https://medium.com/@intergalacticsage" target="_blank" rel="noopener">Medium</a>.</p>
           </div>
-          <div>
+          <div class="card-dark" data-reveal>
             <h3>Tools</h3>
             <p>WordPress · Drupal · Mailchimp · Hootsuite · Google Analytics</p>
           </div>
@@ -376,18 +416,19 @@
     <!-- CONTACT -->
     <section id="contact" class="contact">
       <div class="wrap contact-grid">
-        <div>
-          <p class="eyebrow eyebrow-light">Contact</p>
+        <div data-reveal>
+          <p class="eyebrow">Contact</p>
           <h2>Planning an event or a campaign?</h2>
           <p class="intro">Available for MC and moderation bookings, communication strategy, PR and commissioned writing, in Nairobi and beyond.</p>
         </div>
-        <div class="contact-card">
+        <div class="contact-card card-dark glow" data-reveal>
           <a class="contact-email" href="mailto:jhnmrkochieng@gmail.com">jhnmrkochieng@gmail.com</a>
+          <button type="button" class="copy-email" data-copy="jhnmrkochieng@gmail.com"><span class="copy-label">Copy email</span></button>
           <div class="contact-actions">
             <a href="rates.html" class="btn btn-accent">Rates &amp; quote</a>
-            <a href="https://www.linkedin.com/in/johnmark-o-40053770/" class="btn btn-ghost-light" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://traversingcosmos.wordpress.com/" class="btn btn-ghost-light" target="_blank" rel="noopener">Blog</a>
-            <a href="https://www.instagram.com/thetryingathlete" class="btn btn-ghost-light" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/in/johnmark-o-40053770/" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://traversingcosmos.wordpress.com/" class="btn btn-ghost" target="_blank" rel="noopener">Blog</a>
+            <a href="https://www.instagram.com/thetryingathlete" class="btn btn-ghost" target="_blank" rel="noopener">Instagram</a>
           </div>
         </div>
       </div>
@@ -401,7 +442,8 @@
     </div>
   </footer>
 
+  <button type="button" class="to-top" aria-label="Back to top"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+
   <script src="main.js"></script>
-  <script src="motion.js"></script>
 </body>
 </html>
