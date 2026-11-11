@@ -132,11 +132,15 @@ html:not(.js) .role-rotator span:first-child { transform: none; opacity: 1; }
 .planet { position: absolute; left: -10%; right: -10%; top: 10%; aspect-ratio: 1; border-radius: 50%; z-index: 0;
   background: radial-gradient(circle at 32% 28%, #2c4a7c 0%, #16294a 45%, #0d1a30 75%);
   box-shadow: inset -30px -30px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(143, 180, 255, 0.12), 0 0 90px rgba(143, 180, 255, 0.22), 18px -10px 70px -20px rgba(232, 82, 31, 0.5);
-  animation: float 9s ease-in-out infinite; }
+  }
 @keyframes float { 50% { transform: translateY(-10px); } }
 .hero-cutout { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; z-index: 2;
-  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); }
-.hero-orbit { position: absolute; left: -38%; width: 168%; top: 32%; aspect-ratio: 2 / 1; pointer-events: none; overflow: visible; }
+  /* Union of two shapes: everything above the planet's centre line, plus the planet disc itself.
+     Planet = 120% of the photo width, top at 10% of its height, so its centre is at 54.4% of the
+     height and its radii are 60% (of width) and 44.4% (of height). */
+  -webkit-mask-image: linear-gradient(to bottom, #000 54.4%, transparent 54.4%), radial-gradient(ellipse 60% 44.4% at 50% 54.4%, #000 99.4%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 54.4%, transparent 54.4%), radial-gradient(ellipse 60% 44.4% at 50% 54.4%, #000 99.4%, transparent 100%); }
+.hero-orbit { position: absolute; left: -4%; width: 108%; top: 34.4%; aspect-ratio: 2 / 1; pointer-events: none; overflow: visible; }
 .orbit-back { z-index: 1; }
 .orbit-front { z-index: 3; }
 .orbit-path { fill: none; stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 3 6; animation: dash 30s linear infinite; }
@@ -146,7 +150,7 @@ html:not(.js) .role-rotator span:first-child { transform: none; opacity: 1; }
 .sat-grid { stroke: var(--ink); stroke-width: .6; opacity: .5; }
 .sat-mast { stroke: var(--accent); stroke-width: 1.2; }
 .sat-dish { fill: var(--accent); }
-.photo-tag { position: absolute; z-index: 4; left: -6%; bottom: 8%; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--white); background: rgba(11, 22, 38, 0.75); border: 1px solid var(--line-dark); padding: 6px 12px; border-radius: 999px; backdrop-filter: blur(6px); }
+.photo-tag { position: absolute; z-index: 4; left: -14%; bottom: 14%; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--white); background: rgba(11, 22, 38, 0.75); border: 1px solid var(--line-dark); padding: 6px 12px; border-radius: 999px; backdrop-filter: blur(6px); }
 .scroll-cue { position: absolute; z-index: 2; left: 50%; bottom: 26px; width: 26px; height: 42px; margin-left: -13px; border: 2px solid rgba(255, 255, 255, 0.35); border-radius: 14px; }
 .scroll-cue span { position: absolute; top: 8px; left: 50%; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: var(--accent); animation: cue 1.8s ease-in-out infinite; }
 @keyframes cue { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(14px); } }
@@ -176,7 +180,7 @@ html:not(.js) .role-rotator span:first-child { transform: none; opacity: 1; }
 html:not(.js) .trust-list { flex-wrap: wrap; }
 
 /* ---------- Stats ---------- */
-.stats { padding: 72px 0 24px; }
+.stats { padding: 56px 0 80px; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 .stat { padding: 28px 24px; }
 .stat strong { display: block; font-family: var(--serif); font-weight: 500; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1; margin-bottom: 10px; color: var(--ink); font-variant-numeric: tabular-nums; }
@@ -466,3 +470,32 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
   .js [data-reveal], .js .reveal, .js .hero-copy > *, .js .hero-photo { opacity: 1; transform: none; animation: none; }
   .card, .card-dark { background: none; box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
 }
+
+/* ---------- Light cards on dark sections ---------- */
+.dark .card h3 { color: var(--ink); }
+.dark .card p { color: var(--muted); }
+.dark .card { border-color: transparent; box-shadow: 0 10px 34px rgba(0, 0, 0, 0.35); }
+.dark .card.glow:hover { box-shadow: 0 0 0 1px rgba(232, 82, 31, 0.5), 0 24px 54px rgba(0, 0, 0, 0.45); }
+.dark .service > p { color: var(--muted); }
+.service ul { border-top-color: var(--line); }
+.service li { color: var(--ink); border-bottom-color: var(--line); }
+.service-icon { stroke: var(--accent); background: rgba(232, 82, 31, 0.08); border-color: rgba(232, 82, 31, 0.25); }
+.service-num { color: var(--muted); }
+.service .link-arrow { color: var(--ink); }
+.dark .card .link-arrow::after { color: var(--accent); }
+.dark .jobs::before { background: rgba(255, 255, 255, 0.15); }
+.dark .job-node { background: var(--ink); border-color: rgba(255, 255, 255, 0.3); }
+.dark .job-node::after { background: rgba(255, 255, 255, 0.3); }
+.dark .job.is-reached .job-node::after { background: var(--accent); }
+.dark .job-card .job-org { color: var(--accent); }
+.dark .extras p { color: var(--ink); }
+.contact-card .contact-email { color: var(--ink); }
+.contact-card .contact-email:hover { color: var(--accent); }
+.contact-card .copy-email { color: var(--muted); border-color: var(--line); }
+.contact-card .copy-email:hover { color: var(--ink); border-color: var(--ink); }
+.contact-card .contact-actions { border-top-color: var(--line); }
+.contact-card .btn-ghost { color: var(--ink); border-color: var(--line); }
+.contact-card .btn-ghost:hover { border-color: var(--ink); background: var(--paper-2); }
+.dark .extras h3 { color: var(--accent); }
+.to-top { background: var(--accent); box-shadow: 0 8px 24px rgba(232, 82, 31, 0.35); }
+.to-top:hover { background: #ff6a33; }
