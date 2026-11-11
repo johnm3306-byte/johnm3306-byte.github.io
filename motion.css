@@ -57,6 +57,54 @@ section[id] { scroll-margin-top: 88px; }
 .to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (max-width: 760px) { .to-top { right: 14px; bottom: 14px; width: 40px; height: 40px; } }
 
+/* ---------- Cards: a thin accent line draws across the top on hover ----------
+   Services and rate cards keep their existing layout; nothing lifts or moves. */
+.service, .rate-card { position: relative; }
+.service::before, .rate-card::before {
+  content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 2px;
+  background: var(--accent); transform: scaleX(0); transform-origin: left;
+  transition: transform var(--motion-base) var(--motion-ease); pointer-events: none;
+}
+.service:hover::before, .service:focus-within::before,
+.rate-card:hover::before { transform: scaleX(1); }
+.service-num { display: inline-block; transition: transform var(--motion-base) var(--motion-ease); }
+.service:hover .service-num { transform: translateX(4px); }
+
+/* ---------- Buttons: smooth colour change plus a slight lift ---------- */
+.btn {
+  transition: background var(--motion-fast) ease, color var(--motion-fast) ease,
+              border-color var(--motion-fast) ease, transform var(--motion-fast) var(--motion-ease);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); transition-duration: 80ms; }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Links ---------- */
+.link-arrow::after { transition: transform var(--motion-base) var(--motion-ease); }
+.link-arrow:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+/* Inline text links: the existing underline eases down and turns accent on hover. */
+.split-grid p a, .extras p a, .intro a {
+  text-underline-offset: 3px;
+  transition: color var(--motion-fast) ease, text-underline-offset var(--motion-fast) var(--motion-ease);
+}
+.split-grid p a:hover, .extras p a:hover, .intro a:hover { text-underline-offset: 6px; }
+/* Footer links: an underline grows in from the left. */
+.footer a {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: color var(--motion-fast) ease, background-size var(--motion-base) var(--motion-ease);
+}
+.footer a:hover, .footer a:focus-visible { background-size: 100% 1px; }
+.contact-email { transition: border-color var(--motion-base) ease; }
+
+/* ---------- Icons: small, hover-only ---------- */
+.logo-mark { transition: transform var(--motion-base) var(--motion-ease); }
+.logo:hover .logo-mark { transform: rotate(-8deg); }
+
+/* ---------- Images: gentle zoom inside their own frame ---------- */
+.img-frame { display: block; overflow: hidden; margin-bottom: 16px; background: var(--line); }
+.img-frame img { margin-bottom: 0; transition: transform var(--motion-slow) var(--motion-ease); }
+.article:hover .img-frame img, .article:focus-visible .img-frame img { transform: scale(1.03); }
+
 @media print {
   .hero-sky, .scroll-progress, .to-top { display: none; }
 }

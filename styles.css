@@ -305,6 +305,10 @@ main { overflow-x: clip; }
 .terms p { color: var(--muted); font-size: 0.95rem; }
 
 /* ===== Responsive ===== */
+/* Tablet widths: tighten nav spacing so the links fit without a sideways scroll. */
+@media (min-width: 761px) and (max-width: 1000px) {
+  .nav nav { gap: 16px; }
+}
 @media (max-width: 1000px) {
   .hero-grid, .split-grid, .contact-grid, .estimator { grid-template-columns: 1fr; gap: 48px; }
   .hero-photo { max-width: 360px; margin: 0 auto; }

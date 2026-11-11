@@ -208,6 +208,18 @@
     check();
   }
 
+  /* ---------- Image frames: wrap article images so hover zoom stays clipped ---------- */
+  function imageFrames() {
+    var imgs = document.querySelectorAll(".article > img");
+    for (var i = 0; i < imgs.length; i++) {
+      var frame = document.createElement("span");
+      frame.className = "img-frame";
+      imgs[i].parentNode.insertBefore(frame, imgs[i]);
+      frame.appendChild(imgs[i]);
+    }
+  }
+
+  safely(imageFrames);
   safely(heroSky);
   safely(scrollProgress);
   safely(backToTop);
