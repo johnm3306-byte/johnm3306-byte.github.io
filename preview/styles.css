@@ -202,7 +202,7 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 .split-grid p:not(.body-lg):not(.eyebrow) { color: var(--muted); }
 .split-grid p a, .extras p a, .intro a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; transition: color var(--fast), text-underline-offset var(--fast); }
 .split-grid p a:hover, .extras p a:hover, .intro a:hover { color: var(--accent); text-underline-offset: 6px; }
-.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 32px 0 0; }
+.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 32px 0 0; }
 .fact { padding: 18px 18px 16px; }
 .fact:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
 .fact dt { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
@@ -241,7 +241,7 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 .ev-date { grid-row: 1 / 3; align-self: start; display: inline-block; text-align: center; font-size: 0.78rem; line-height: 1.3; padding: 10px 6px; border-radius: 10px; background: var(--ink); color: var(--white); }
 .ev-main h3 { font-size: 1.22rem; margin: 0 0 4px; }
 .ev-main p { margin: 0; color: var(--muted); font-size: 0.93rem; }
-.ev-role { grid-column: 2; justify-self: start; margin-top: 6px; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--accent); background: rgba(232, 82, 31, 0.08); border: 1px solid rgba(232, 82, 31, 0.25); padding: 3px 10px; border-radius: 999px; }
+.ev-role { grid-column: 2; justify-self: start; margin-top: 6px; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
 .events-more { margin: 30px 0 0; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
 
 /* ---------- Writing: article cards ---------- */
@@ -499,3 +499,21 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 .dark .extras h3 { color: var(--accent); }
 .to-top { background: var(--accent); box-shadow: 0 8px 24px rgba(232, 82, 31, 0.35); }
 .to-top:hover { background: #ff6a33; }
+
+/* ---------- Mobile: hero fits the screen; careers collapse to a tap-to-open list ---------- */
+@media (max-width: 760px) {
+  /* the planet is 120% of the photo width, so keep the photo at screen width / 1.2 */
+  .hero-photo { max-width: calc((100vw - 40px) / 1.2); }
+  .photo-tag { left: -6%; bottom: 10%; font-size: 0.66rem; }
+
+  .js .job-card { cursor: pointer; padding-right: 54px; }
+  .js .job-card::after { content: ""; position: absolute; top: 28px; right: 22px; width: 9px; height: 9px;
+    border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg); transition: transform var(--base) var(--ease); }
+  .js .job.is-open .job-card::after { transform: rotate(-135deg); top: 33px; }
+  .js .job-more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--base) var(--ease); }
+  .js .job-more > div { overflow: hidden; }
+  .js .job-more p { padding-top: 10px; }
+  .js .job.is-open .job-more { grid-template-rows: 1fr; }
+  .job-card .job-org { margin-bottom: 0; }
+  .job-card:hover, .js .job-card.glow:hover { transform: none; }
+}
