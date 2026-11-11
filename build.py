@@ -7,7 +7,6 @@ anywhere without the rest of the folder. Run: python3 build.py
 import base64, mimetypes, pathlib, re
 
 root = pathlib.Path(__file__).parent
-css = (root / "styles.css").read_text()
 PAGES = {"index.html": "portfolio-preview.html", "rates.html": "rates-preview.html"}
 
 def inline_img(match):
@@ -18,7 +17,8 @@ def inline_img(match):
 
 for src, dest in PAGES.items():
     html = (root / src).read_text()
-    html = html.replace('<link rel="stylesheet" href="styles.css">', f"<style>\n{css}\n</style>")
+    html = re.sub(r'<link rel="stylesheet" href="([\w.-]+\.css)">',
+                  lambda m: f"<style>\n{(root / m.group(1)).read_text()}\n</style>", html)
     html = re.sub(r'<script src="([\w.-]+\.js)"></script>',
                   lambda m: f"<script>\n{(root / m.group(1)).read_text()}\n</script>", html)
     html = re.sub(r'(src|content|href)="(assets/[^"]+\.(?:svg|png|jpe?g))"', inline_img, html)

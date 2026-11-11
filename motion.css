@@ -1,0 +1,28 @@
+/* =========================================================================
+   motion.css: subtle motion layered on top of styles.css.
+   Loaded after styles.css. Adds motion only; it does not restyle the site.
+   All timings and the easing curve live here so motion is easy to tune.
+   ========================================================================= */
+
+:root {
+  --motion-fast: 200ms;
+  --motion-base: 400ms;
+  --motion-slow: 700ms;
+  --motion-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* ---------- Hero sky: faint starfield + occasional shooting star ----------
+   One canvas behind the hero content (and behind the navy arch), so stars
+   only ever show on the paper background. Never takes clicks or space. */
+.hero { position: relative; }
+.hero > .wrap { position: relative; z-index: 1; }
+.hero-sky {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 0; pointer-events: none;
+  opacity: 0; transition: opacity 1.6s ease;
+}
+.hero-sky.is-ready { opacity: 1; }
+
+@media print {
+  .hero-sky { display: none; }
+}
