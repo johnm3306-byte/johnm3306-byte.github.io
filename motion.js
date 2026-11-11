@@ -219,7 +219,97 @@
     }
   }
 
+  /* ---------- Reveal: extend the existing system with stagger and more targets ---------- */
+  function reveal() {
+    // Extra elements to ease in (the main hero has its own load-in, so it is skipped).
+    var extra = document.querySelectorAll(
+      ".section-head, .trust-row, .stats-grid > div, .contact-grid > div, .rates-hero .wrap > *"
+    );
+    for (var i = 0; i < extra.length; i++) {
+      if (!extra[i].classList.contains("reveal")) extra[i].setAttribute("data-reveal", "");
+    }
+    var targets = document.querySelectorAll("[data-reveal]");
+
+    // No observer support: show everything straight away (including main.js's .reveal items).
+    if (!("IntersectionObserver" in window) || reduceMotion) {
+      var all = document.querySelectorAll(".reveal, [data-reveal]");
+      for (var k = 0; k < all.length; k++) all[k].classList.add("visible", "is-visible");
+      return;
+    }
+
+    // Stagger items that share a row in a grid (60 to 100ms steps), so rows ripple in.
+    var groups = document.querySelectorAll(".services, .articles, .rate-grid, .content-grid, .terms, .stats-grid, .incl-grid, .contact-grid, .rates-hero .wrap");
+    function stagger() {
+      for (var g = 0; g < groups.length; g++) {
+        var kids = groups[g].children, rowTop = null, col = 0;
+        for (var c = 0; c < kids.length; c++) {
+          var top = kids[c].offsetTop;
+          col = (rowTop !== null && Math.abs(top - rowTop) < 4) ? col + 1 : 0;
+          if (col === 0) rowTop = top;
+          if (!kids[c].classList.contains("visible") && !kids[c].classList.contains("is-visible")) {
+            kids[c].style.transitionDelay = Math.min(col, 5) * 80 + "ms";
+          }
+        }
+      }
+    }
+    stagger();
+
+    // Clear the delay once revealed, so later hover transitions respond instantly.
+    document.addEventListener("transitionend", function (e) {
+      var el = e.target;
+      if (el.style && el.style.transitionDelay && (el.classList.contains("visible") || el.classList.contains("is-visible"))) {
+        el.style.transitionDelay = "";
+      }
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    for (var t = 0; t < targets.length; t++) io.observe(targets[t]);
+  }
+
+  /* ---------- Orbital accents beside a few section headings ---------- */
+  function orbitAccents() {
+    var heads = document.querySelectorAll("#stage .section-head, #experience .section-head, #rates .section-head");
+    var orbit = "M18 66a112 36 0 1 0 224 0a112 36 0 1 0 -224 0";
+    var svg =
+      '<svg viewBox="0 0 260 120" width="260" height="120" focusable="false">' +
+        '<g transform="rotate(-10 130 66)">' +
+          '<path class="oa-path" d="' + orbit + '"/>' +
+          '<path class="oa-dash" d="' + orbit + '"/>' +
+          '<circle class="oa-dot" r="2.6">' +
+            (reduceMotion ? "" : '<animateMotion dur="80s" repeatCount="indefinite" path="' + orbit + '"/>') +
+          '</circle>' +
+        '</g>' +
+        // minimal satellite, line drawing
+        '<g class="oa-sat" transform="translate(196 24) rotate(-20)">' +
+          '<rect x="-4" y="-3" width="8" height="6" rx="1"/>' +
+          '<rect x="-15" y="-2.5" width="9" height="5"/><rect x="6" y="-2.5" width="9" height="5"/>' +
+          '<path d="M-6 0h2M4 0h2M0 -3v-4M-2.5 -9a2.5 1.6 0 0 0 5 0"/>' +
+        '</g>' +
+        '<circle class="oa-star" cx="40" cy="22" r="1.4"/><circle class="oa-star" cx="78" cy="10" r="1"/>' +
+        '<circle class="oa-star" cx="236" cy="100" r="1.2"/><circle class="oa-star" cx="120" cy="112" r="0.9"/>' +
+      '</svg>';
+    var io = "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); } });
+    }, { threshold: 0.3 }) : null;
+    for (var i = 0; i < heads.length; i++) {
+      var el = document.createElement("div");
+      el.className = "orbit-accent";
+      el.setAttribute("aria-hidden", "true");
+      el.innerHTML = svg;
+      heads[i].appendChild(el);
+      if (io) io.observe(el); else el.classList.add("is-visible");
+    }
+  }
+
   safely(imageFrames);
+  safely(reveal);
+  safely(orbitAccents);
   safely(heroSky);
   safely(scrollProgress);
   safely(backToTop);
