@@ -23,6 +23,40 @@
 }
 .hero-sky.is-ready { opacity: 1; }
 
+/* ---------- Navigation and scrolling ---------- */
+/* Keep headings clear of the sticky header when jumping to a section. */
+section[id] { scroll-margin-top: 88px; }
+@media (max-width: 760px) { section[id] { scroll-margin-top: 72px; } }
+
+/* Nav links: the underline already grows on hover/active (styles.css);
+   extend it to keyboard focus, and smooth it with the shared easing. */
+.nav nav a:not(.btn)::after { transition: transform var(--motion-base) var(--motion-ease); }
+.nav nav a:not(.btn):focus-visible::after { transform: scaleX(1); }
+.nav nav a:focus-visible, .logo:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+/* Thin reading-progress line along the top of the viewport. */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 20;
+  background: var(--accent); transform: scaleX(0); transform-origin: 0 50%;
+  pointer-events: none; will-change: transform;
+}
+
+/* Back-to-top: small, quiet, appears after one screen of scrolling. */
+.to-top {
+  position: fixed; right: 20px; bottom: 20px; z-index: 15;
+  width: 44px; height: 44px; display: grid; place-items: center;
+  background: var(--paper); color: var(--ink); border: 1px solid var(--ink); border-radius: 3px;
+  cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity var(--motion-base) var(--motion-ease), transform var(--motion-base) var(--motion-ease),
+              visibility 0s linear var(--motion-base), background var(--motion-fast), color var(--motion-fast);
+}
+.to-top.is-shown { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.to-top:hover { background: var(--ink); color: var(--white); }
+.to-top:hover svg { transform: translateY(-2px); }
+.to-top svg { transition: transform var(--motion-fast) var(--motion-ease); }
+.to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 760px) { .to-top { right: 14px; bottom: 14px; width: 40px; height: 40px; } }
+
 @media print {
-  .hero-sky { display: none; }
+  .hero-sky, .scroll-progress, .to-top { display: none; }
 }

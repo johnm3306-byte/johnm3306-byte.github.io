@@ -159,5 +159,56 @@
     update();
   }
 
+  /* ---------- Scroll progress: thin accent line, transform only ---------- */
+  function scrollProgress() {
+    var bar = document.createElement("div");
+    bar.className = "scroll-progress";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+    var ticking = false;
+    function paint() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = "scaleX(" + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ")";
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(paint); }
+    }, { passive: true });
+    window.addEventListener("resize", paint);
+    paint();
+  }
+
+  /* ---------- Back to top: shows after one screen, hides near the footer ---------- */
+  function backToTop() {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "to-top";
+    btn.setAttribute("aria-label", "Back to top");
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">' +
+      '<path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(btn);
+
+    var footer = document.querySelector(".footer");
+    var ticking = false;
+    function check() {
+      var pastFirstScreen = window.scrollY > window.innerHeight * 0.9;
+      // Hide once the footer (which has its own "Back to top" link) is in view.
+      var footerInView = footer && footer.getBoundingClientRect().top < window.innerHeight;
+      btn.classList.toggle("is-shown", pastFirstScreen && !footerInView);
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(check); }
+    }, { passive: true });
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      var first = document.querySelector(".logo");     // move keyboard focus back to the top
+      if (first) first.focus({ preventScroll: true });
+    });
+    check();
+  }
+
   safely(heroSky);
+  safely(scrollProgress);
+  safely(backToTop);
 })();
