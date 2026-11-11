@@ -140,7 +140,7 @@ html:not(.js) .role-rotator span:first-child { transform: none; opacity: 1; }
      height and its radii are 60% (of width) and 44.4% (of height). */
   -webkit-mask-image: linear-gradient(to bottom, #000 54.4%, transparent 54.4%), radial-gradient(ellipse 60% 44.4% at 50% 54.4%, #000 99.4%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 54.4%, transparent 54.4%), radial-gradient(ellipse 60% 44.4% at 50% 54.4%, #000 99.4%, transparent 100%); }
-.hero-orbit { position: absolute; left: -4%; width: 108%; top: 34.4%; aspect-ratio: 2 / 1; pointer-events: none; overflow: visible; }
+.hero-orbit { position: absolute; left: -24%; width: 148%; top: 27%; aspect-ratio: 2 / 1; pointer-events: none; overflow: visible; }
 .orbit-back { z-index: 1; }
 .orbit-front { z-index: 3; }
 .orbit-path { fill: none; stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 3 6; animation: dash 30s linear infinite; }
@@ -505,6 +505,8 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
   /* the planet is 120% of the photo width, so keep the photo at screen width / 1.2 */
   .hero-photo { max-width: calc((100vw - 40px) / 1.2); }
   .photo-tag { left: -6%; bottom: 10%; font-size: 0.66rem; }
+  /* narrower ring on phones so its ends still fit on screen */
+  .hero-orbit { left: -16%; width: 132%; top: 30%; }
 
   .js .job-card { cursor: pointer; padding-right: 54px; }
   .js .job-card::after { content: ""; position: absolute; top: 28px; right: 22px; width: 9px; height: 9px;
@@ -516,4 +518,9 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
   .js .job.is-open .job-more { grid-template-rows: 1fr; }
   .job-card .job-org { margin-bottom: 0; }
   .job-card:hover, .js .job-card.glow:hover { transform: none; }
+}
+
+/* Mid-size screens: two columns but less room, so a slightly narrower ring */
+@media (min-width: 1001px) and (max-width: 1240px) {
+  .hero-orbit { left: -18%; width: 136%; top: 29.3%; }
 }
