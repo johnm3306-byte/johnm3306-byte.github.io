@@ -10,3 +10,10 @@ Static HTML/CSS/JS site, hosted on GitHub Pages.
 - `build.py`: bundles each page into a single self-contained `*-preview.html` for sharing offline
 
 To add an event, copy one `<li>` block in the "On stage" list in `index.html`.
+
+## Motion layer
+
+- `motion.css`: all motion styles. Timings and easing are variables at the top (`--motion-fast`, `--motion-base`, `--motion-slow`, `--motion-ease`).
+- `motion.js`: small independent features: hero sky (starfield + shooting stars), scroll progress, back-to-top, reveal stagger, orbital accents, image frames. Each fails safely on its own.
+- Hero sky tuning (star count, brightness, shooting-star gap) is at the top of `heroSky()` in `motion.js`.
+- Reduced-motion users get a still version of everything.
