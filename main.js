@@ -250,6 +250,39 @@
     paint();
   }
 
+  /* ---------- Careers: tap to open each role on phones ---------- */
+  function careerAccordion() {
+    var mq = window.matchMedia("(max-width: 760px)");
+    var jobs = $$(".job"); if (!jobs.length) return;
+    function setup() {
+      jobs.forEach(function (job) {
+        var card = $(".job-card", job), more = $(".job-more", job);
+        if (!card || !more) return;
+        if (mq.matches) {
+          card.setAttribute("role", "button"); card.setAttribute("tabindex", "0");
+          card.setAttribute("aria-expanded", job.classList.contains("is-open"));
+          more.setAttribute("aria-hidden", !job.classList.contains("is-open"));
+        } else {
+          card.removeAttribute("role"); card.removeAttribute("tabindex"); card.removeAttribute("aria-expanded");
+          more.removeAttribute("aria-hidden");
+        }
+      });
+    }
+    function toggle(job) {
+      if (!mq.matches) return;
+      var open = job.classList.toggle("is-open");
+      $(".job-card", job).setAttribute("aria-expanded", open);
+      $(".job-more", job).setAttribute("aria-hidden", !open);
+    }
+    jobs.forEach(function (job) {
+      var card = $(".job-card", job); if (!card) return;
+      card.addEventListener("click", function (e) { if (e.target.closest("a")) return; toggle(job); });
+      card.addEventListener("keydown", function (e) { if (mq.matches && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggle(job); } });
+    });
+    if (mq.addEventListener) mq.addEventListener("change", setup);
+    setup();
+  }
+
   /* ---------- Copy email to clipboard ---------- */
   function copyEmail() {
     $$(".copy-email").forEach(function (b) {
@@ -289,5 +322,5 @@
     if (reduceMotion) $$(".hero-orbit").forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });
   }
 
-  [basics, marquees, starfields, roleRotator, reveals, counters, cardFx, eventFilters, timeline, copyEmail, scrolling, svgMotion].forEach(safely);
+  [basics, marquees, starfields, roleRotator, reveals, counters, cardFx, eventFilters, timeline, careerAccordion, copyEmail, scrolling, svgMotion].forEach(safely);
 })();
