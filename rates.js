@@ -1,5 +1,5 @@
 // Quote estimator: event services + content work in one quote.
-// Edit prices here, and also on the rate cards in rates.html.
+// Edit prices here, and also on the rate cards in rates-k7q2.html.
 
 const EVENT_PRICES = {
   mc:    { half: 20000, full: 35000, name: "MC" },

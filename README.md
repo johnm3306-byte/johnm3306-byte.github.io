@@ -3,7 +3,8 @@
 Static HTML/CSS/JS site, hosted on GitHub Pages.
 
 - `index.html`: main page (about, services, events, writing, experience, contact)
-- `rates.html` + `rates.js`: rate card and quote estimator (prices live at the top of `rates.js` and on the cards in `rates.html`)
+- `rates-k7q2.html` + `rates.js`: the rate card and quote estimator. **Unlisted**: not linked from the site and hidden from search engines; share the link with clients directly. Prices live at the top of `rates.js` and on the cards in `rates-k7q2.html`.
+- `rates.html`: the old public address; it now forwards visitors to the Contact section and tells search engines to drop it.
 - `styles.css`: all styling; colours are set at the top under `:root`
 - `main.js`: starfield, animations and menu
 - `assets/`: photo, article images and logo

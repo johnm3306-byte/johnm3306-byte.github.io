@@ -7,7 +7,7 @@ anywhere without the rest of the folder. Run: python3 build.py
 import base64, mimetypes, pathlib, re
 
 root = pathlib.Path(__file__).parent
-PAGES = {"index.html": "portfolio-preview.html", "rates.html": "rates-preview.html"}
+PAGES = {"index.html": "portfolio-preview.html", "rates-k7q2.html": "rates-preview.html"}
 
 def inline_img(match):
     path = root / match.group(2)
