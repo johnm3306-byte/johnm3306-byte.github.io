@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /rates-k7q2.html
+
+Sitemap: https://johnmarkochieng.com/sitemap.xml
