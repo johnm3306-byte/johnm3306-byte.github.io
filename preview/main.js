@@ -367,7 +367,7 @@
   // Main call-to-action buttons lean toward the cursor
   function magneticButtons() {
     if (!finePointer || reduceMotion) return;
-    $$(".hero-actions .btn, .contact-actions .btn-accent").forEach(function (b) {
+    $$(".contact-actions .btn-accent").forEach(function (b) {
       b.addEventListener("pointermove", function (e) {
         var r = b.getBoundingClientRect();
         b.style.translate = ((e.clientX - r.left - r.width / 2) * 0.22).toFixed(1) + "px " + ((e.clientY - r.top - r.height / 2) * 0.3).toFixed(1) + "px";
@@ -448,7 +448,7 @@
       b.style.left = "calc(" + ((d.a - min) / span * 100) + "% + 3px)";
       b.style.width = "calc(" + ((d.b - d.a) / span * 100) + "% - 6px)";
       var years = Math.floor(d.a / 12) + (Math.floor((d.b - 1) / 12) !== Math.floor(d.a / 12) ? "–" + (d.current ? "now" : Math.floor((d.b - 1) / 12)) : (d.current ? "–now" : ""));
-      b.innerHTML = "<b>" + d.short + "</b><small>" + years + "</small>";
+      b.innerHTML = "<b>" + d.short + "</b><small>" + years + "</small>" + (d.current ? '<svg class="traj-rocket" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4c3.5-1 6-1 6-1s0 2.5-1 6l-6 6-5-5z"/><path d="M9 10l-4 1-2 3 4 1M14 15l-1 4-3 2-1-4"/><circle cx="15.5" cy="8.5" r="1.4"/><path d="M6 18l-2 2"/></svg>' : "");
       b.setAttribute("aria-label", d.short + ", " + $(".job-date", d.el).textContent + ": show role");
       b.addEventListener("click", function () { select(i, true); });
       track.appendChild(b); return b;
