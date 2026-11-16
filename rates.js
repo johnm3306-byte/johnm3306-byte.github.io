@@ -39,7 +39,7 @@ const CONTENT = [
   { group: "Strategy", id: "adv",   name: "Advisory session (2 hours)",                price: 7500,  unit: "session" }
 ];
 
-const EMAIL = "jhnmrkochieng@gmail.com";
+const EMAIL = "hello@johnmarkochieng.com";
 const fmt = (n) => Math.round(n).toLocaleString("en-KE");
 const $ = (id) => document.getElementById(id);
 
