@@ -584,3 +584,69 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
   .process-steps { --fill: 1; }
 }
 @media print { .role-band, .spotlight { display: none !important; } }
+
+
+/* =========================================================================
+   Services switcher (desktop) + career trajectory
+   ========================================================================= */
+
+/* ---------- Services: pick a service on the left, details on the right ---------- */
+.svc-switch { display: grid; grid-template-columns: 330px 1fr; gap: 24px; align-items: start; }
+.svc-tabs { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 10px; }
+.svc-tab { display: grid; grid-template-columns: 46px 1fr auto; align-items: center; gap: 14px; width: 100%; text-align: left; padding: 16px 18px; border-radius: var(--radius); border: 1px solid var(--line-dark); background: rgba(255, 255, 255, 0.04); color: #dbe4f1; font: 500 1.05rem var(--serif); cursor: pointer; transition: background var(--base) var(--ease), border-color var(--base), transform var(--base) var(--ease), color var(--base); }
+.svc-tab:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(4px); }
+.svc-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.svc-tab svg { width: 46px; height: 46px; padding: 10px; border-radius: 12px; fill: none; stroke: var(--accent-soft); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; background: rgba(232, 82, 31, 0.12); border: 1px solid rgba(232, 82, 31, 0.3); transition: background var(--base), stroke var(--base); }
+.svc-tab .svc-num { font-family: var(--mono); font-size: 0.75rem; color: var(--muted-dark); }
+.svc-tab[aria-selected="true"] { background: var(--white); border-color: var(--white); color: var(--ink); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35); }
+.svc-tab[aria-selected="true"] svg { background: var(--accent); stroke: var(--white); border-color: var(--accent); }
+.svc-tab[aria-selected="true"] .svc-num { color: var(--accent); }
+.svc-switch .services { display: block; }
+.svc-switch .service { padding: 38px 40px; min-height: 100%; }
+.svc-switch .service[hidden] { display: none; }
+.svc-switch .service.is-entering { animation: svcIn .5s var(--ease); }
+@keyframes svcIn { from { opacity: 0; transform: translateY(14px); } }
+.svc-switch .service-top { display: none; }
+.svc-switch .service h3 { font-size: clamp(1.9rem, 3vw, 2.5rem); }
+.svc-switch .service > p { font-size: 1.05rem; max-width: 62ch; }
+.svc-switch .service ul { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; border-top: 0; margin-top: 18px; }
+.svc-switch .service li { padding: 12px 0 12px 32px; border-bottom: 1px solid var(--line); }
+.svc-switch .service li::before { width: 20px; height: 20px; top: 12px; border: 0; border-radius: 50%; background: rgba(232, 82, 31, 0.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23e8521f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
+.svc-switch .service .link-arrow { margin-top: 26px; }
+
+/* ---------- Career trajectory bar ---------- */
+.trajectory { position: relative; margin: 0 0 30px; }
+.traj-track { position: relative; height: 64px; border-radius: 14px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--line-dark); }
+.traj-seg { position: absolute; top: 7px; bottom: 7px; display: flex; flex-direction: column; justify-content: center; padding: 0 14px; min-width: 0; overflow: hidden; border-radius: 9px; border: 1px solid rgba(255, 255, 255, 0.14); background: linear-gradient(160deg, #1d3354, #132540); color: #dbe4f1; text-align: left; cursor: pointer; transition: background var(--base) var(--ease), transform var(--base) var(--ease), border-color var(--base), box-shadow var(--base); }
+.traj-seg:hover { transform: translateY(-3px); border-color: rgba(232, 82, 31, 0.6); }
+.traj-seg:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.traj-seg b { font: 600 0.92rem var(--sans); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.traj-seg small { font: 400 0.7rem var(--mono); color: var(--muted-dark); white-space: nowrap; }
+.traj-seg[aria-pressed="true"] { background: linear-gradient(160deg, var(--accent), #ff7a45); border-color: var(--accent); color: var(--white); box-shadow: 0 10px 28px rgba(232, 82, 31, 0.45); }
+.traj-seg[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.85); }
+.traj-seg.is-current::after { content: ""; position: absolute; right: 10px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: #7ee2a8; box-shadow: 0 0 0 0 rgba(126, 226, 168, 0.7); animation: live 2s infinite; }
+@keyframes live { 70% { box-shadow: 0 0 0 9px rgba(126, 226, 168, 0); } 100% { box-shadow: 0 0 0 0 rgba(126, 226, 168, 0); } }
+.traj-ticks { position: relative; height: 30px; }
+.traj-ticks span { position: absolute; bottom: 0; transform: translateX(-50%); font: 400 0.72rem var(--mono); color: var(--muted-dark); }
+.traj-ticks span::before { content: ""; position: absolute; left: 50%; bottom: 18px; width: 1px; height: 8px; background: rgba(255, 255, 255, 0.25); }
+.traj-hint { margin: 6px 0 0; font-size: 0.85rem; color: var(--muted-dark); }
+
+/* One role at a time under the bar (desktop) */
+.jobs.is-single { padding-left: 0; }
+.jobs.is-single::before, .jobs.is-single::after, .jobs.is-single .job-node { display: none; }
+.jobs.is-single .job { display: none; margin: 0; }
+.jobs.is-single .job.is-active { display: block; animation: svcIn .5s var(--ease); }
+.jobs.is-single .job-card { padding: 34px 38px; }
+.jobs.is-single .job-card:hover { transform: none; }
+.jobs.is-single h3 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+.job-tags { list-style: none; margin: 14px 0 16px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.job-tags li { font-size: 0.8rem; font-weight: 600; color: var(--ink); background: var(--paper-2); border: 1px solid var(--line); padding: 5px 12px; border-radius: 999px; }
+
+@media (max-width: 1000px) {
+  .svc-switch { display: block; }
+  .svc-tabs { display: none; }
+}
+@media (max-width: 760px) {
+  .job-tags { margin-top: 10px; }
+  .job-tags li { font-size: 0.74rem; padding: 4px 10px; }
+}
