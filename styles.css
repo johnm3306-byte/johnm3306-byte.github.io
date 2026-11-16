@@ -592,6 +592,7 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 .svc-tab[aria-selected="true"] { background: var(--white); border-color: var(--white); color: var(--ink); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35); }
 .svc-tab[aria-selected="true"] svg { background: var(--accent); stroke: var(--white); border-color: var(--accent); }
 .svc-tab[aria-selected="true"] .svc-num { color: var(--accent); }
+@media (min-width: 1001px) {
 .svc-switch .services { display: block; }
 .svc-switch .service { padding: 38px 40px; min-height: 100%; }
 .svc-switch .service[hidden] { display: none; }
@@ -604,6 +605,7 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 .svc-switch .service li { padding: 12px 0 12px 32px; border-bottom: 1px solid var(--line); }
 .svc-switch .service li::before { width: 20px; height: 20px; top: 12px; border: 0; border-radius: 50%; background: rgba(232, 82, 31, 0.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23e8521f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
 .svc-switch .service .link-arrow { margin-top: 26px; }
+}
 
 /* ---------- Career trajectory bar ---------- */
 .trajectory { position: relative; margin: 0 0 30px; }
