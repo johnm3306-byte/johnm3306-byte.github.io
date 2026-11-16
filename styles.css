@@ -522,3 +522,65 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 @media (min-width: 1001px) and (max-width: 1240px) {
   .hero-orbit { left: -18%; width: 136%; top: 29.3%; }
 }
+
+
+/* =========================================================================
+   Lively layer
+   ========================================================================= */
+
+/* ---------- How I work ---------- */
+.process { margin-top: 80px; }
+.process-head { margin-bottom: 28px; }
+.process-head h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--white); }
+.process-steps { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: step; }
+.process-steps::before, .process-steps::after { content: ""; position: absolute; left: 6%; right: 6%; top: 50px; height: 2px; z-index: 0; border-radius: 2px; }
+.process-steps::before { background: rgba(255, 255, 255, 0.15); }
+.process-steps::after { background: linear-gradient(90deg, var(--accent), var(--accent-soft)); transform-origin: left; transform: scaleX(var(--fill, 0)); transition: transform 1.6s var(--ease); }
+.process-steps.is-drawn { --fill: 1; }
+.step { position: relative; z-index: 1; padding: 24px 22px; }
+.step-icon { width: 52px; height: 52px; padding: 11px; border-radius: 50%; background: var(--white); border: 2px solid var(--accent); fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 14px; transition: transform var(--base) var(--ease), background var(--base), stroke var(--base); }
+.step:hover .step-icon { transform: translateY(-4px) rotate(-6deg); background: var(--accent); stroke: var(--white); }
+.step-num { position: absolute; top: 22px; right: 22px; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.step h4 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; margin: 0 0 6px; color: var(--ink); }
+.dark .step p { margin: 0; font-size: 0.95rem; }
+
+/* ---------- Big role ticker ---------- */
+.role-band { overflow: hidden; padding: 34px 0; background: var(--paper); border-bottom: 1px solid var(--line); }
+.role-track { display: flex; align-items: center; gap: 0.5em; width: max-content; font-family: var(--serif); font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: 1; letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; animation: roles 38s linear infinite; }
+.role-track .outline { color: transparent; -webkit-text-stroke: 1.5px var(--ink); font-style: italic; }
+.role-track i { font-style: normal; font-size: 0.4em; color: var(--accent); margin: 0 0.35em; display: inline-block; animation: twirl 6s linear infinite; }
+.role-band:hover .role-track { animation-play-state: paused; }
+@keyframes roles { to { transform: translateX(-50%); } }
+@keyframes twirl { to { transform: rotate(360deg); } }
+
+/* ---------- Stage spotlight on the Speaking section ---------- */
+#stage { overflow: hidden; }
+.spotlight { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0; transition: opacity .6s;
+  background: radial-gradient(520px circle at var(--sx, 50%) var(--sy, 30%), rgba(232, 82, 31, 0.10), transparent 65%); }
+#stage:hover .spotlight { opacity: 1; }
+.event::after { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 3px; border-radius: 0 3px 3px 0; background: var(--accent); transform: scaleY(0); transition: transform var(--base) var(--ease); }
+.event { position: relative; overflow: hidden; }
+.event:hover::after { transform: scaleY(1); }
+
+/* ---------- Back-to-top: the arrow launches ---------- */
+.to-top svg { transition: transform .5s cubic-bezier(.5, 0, .75, 0), opacity .5s; }
+.to-top.is-launching svg { transform: translateY(-46px); opacity: 0; }
+.to-top::after { content: ""; position: absolute; left: 50%; top: 60%; width: 6px; height: 0; margin-left: -3px; border-radius: 3px; background: linear-gradient(var(--white), transparent); opacity: 0; }
+.to-top.is-launching::after { animation: exhaust .5s ease-out; }
+@keyframes exhaust { 0% { height: 0; opacity: .9; } 100% { height: 22px; opacity: 0; transform: translateY(6px); } }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .process-steps::before, .process-steps::after { display: none; }
+}
+@media (max-width: 760px) {
+  .process { margin-top: 56px; }
+  .process-steps { grid-template-columns: 1fr; }
+  .role-band { padding: 22px 0; }
+  .spotlight { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-steps { --fill: 1; }
+}
+@media print { .role-band, .spotlight { display: none !important; } }

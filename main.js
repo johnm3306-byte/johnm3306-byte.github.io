@@ -322,5 +322,70 @@
     if (reduceMotion) $$(".hero-orbit").forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });
   }
 
+  /* ---------- Lively layer ---------- */
+  // Process line draws across when the steps come into view
+  function processLine() {
+    var steps = $(".process-steps"); if (!steps) return;
+    if (!("IntersectionObserver" in window) || reduceMotion) { steps.classList.add("is-drawn"); return; }
+    var io = new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { setTimeout(function () { steps.classList.add("is-drawn"); }, 300); io.disconnect(); }
+    }, { threshold: 0.4 });
+    io.observe(steps);
+  }
+
+  // Speaking: a soft stage light follows the cursor
+  function spotlight() {
+    var stage = $("#stage"), light = $(".spotlight", stage || document);
+    if (!stage || !light || !finePointer || reduceMotion) return;
+    stage.addEventListener("pointermove", function (e) {
+      var r = stage.getBoundingClientRect();
+      light.style.setProperty("--sx", (e.clientX - r.left) + "px");
+      light.style.setProperty("--sy", (e.clientY - r.top) + "px");
+    });
+  }
+
+  // Hero photo drifts gently against the cursor (uses the `translate` property,
+  // so it never fights the entrance animation on `transform`)
+  function heroParallax() {
+    var hero = $(".hero"), photo = $(".hero-photo");
+    if (!hero || !photo || !finePointer || reduceMotion) return;
+    var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+    function tick() {
+      cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+      photo.style.translate = cx.toFixed(2) + "px " + cy.toFixed(2) + "px";
+      raf = (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05) ? requestAnimationFrame(tick) : 0;
+    }
+    hero.addEventListener("pointermove", function (e) {
+      var r = hero.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width - 0.5) * -18;
+      ty = ((e.clientY - r.top) / r.height - 0.5) * -12;
+      if (!raf) raf = requestAnimationFrame(tick);
+    });
+    hero.addEventListener("pointerleave", function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(tick); });
+  }
+
+  // Main call-to-action buttons lean toward the cursor
+  function magneticButtons() {
+    if (!finePointer || reduceMotion) return;
+    $$(".hero-actions .btn, .contact-actions .btn-accent").forEach(function (b) {
+      b.addEventListener("pointermove", function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.translate = ((e.clientX - r.left - r.width / 2) * 0.22).toFixed(1) + "px " + ((e.clientY - r.top - r.height / 2) * 0.3).toFixed(1) + "px";
+      });
+      b.addEventListener("pointerleave", function () { b.style.translate = ""; });
+    });
+  }
+
+  // Back-to-top arrow "launches" before the page scrolls up
+  function launchToTop() {
+    var btn = $(".to-top"); if (!btn || reduceMotion) return;
+    btn.addEventListener("click", function () {
+      btn.classList.add("is-launching");
+      setTimeout(function () { btn.classList.remove("is-launching"); }, 900);
+    });
+  }
+
+  [processLine, spotlight, heroParallax, magneticButtons, launchToTop].forEach(safely);
+
   [basics, marquees, starfields, roleRotator, reveals, counters, cardFx, eventFilters, timeline, careerAccordion, copyEmail, scrolling, svgMotion].forEach(safely);
 })();
