@@ -21,9 +21,9 @@
   --shadow: 0 1px 2px rgba(11, 22, 38, 0.05), 0 10px 30px rgba(11, 22, 38, 0.07);
   --shadow-lift: 0 2px 4px rgba(11, 22, 38, 0.06), 0 22px 44px rgba(11, 22, 38, 0.14);
   --max: 1180px;
-  --serif: "Newsreader", Georgia, "Times New Roman", serif;
-  --sans: "Public Sans", "Helvetica Neue", Arial, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --serif: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;   /* headings */
+  --sans: "Source Sans 3", "Segoe UI", Arial, sans-serif;        /* body */
+  --mono: "Source Sans 3", "Segoe UI", Arial, sans-serif;        /* small labels (no typewriter font) */
   --fast: 200ms;
   --base: 420ms;
   --slow: 800ms;
@@ -118,7 +118,7 @@ section[id] { scroll-margin-top: 80px; }
 @keyframes shimmer { 50% { background-position: 100% 0; } }
 .hero-roles { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; font-family: var(--serif); font-size: clamp(1.3rem, 2.4vw, 1.75rem); color: var(--white); }
 .hero-roles .mono { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-dark); }
-.role-rotator { position: relative; display: inline-grid; height: 1.3em; overflow: hidden; color: var(--sky); font-style: italic; }
+.role-rotator { position: relative; display: inline-grid; height: 1.3em; overflow: hidden; color: var(--sky); }
 .role-rotator span { grid-area: 1 / 1; transform: translateY(110%); opacity: 0; transition: transform .6s var(--ease), opacity .6s; white-space: nowrap; }
 .role-rotator span.is-on { transform: none; opacity: 1; }
 .role-rotator span.is-out { transform: translateY(-110%); opacity: 0; }
@@ -192,7 +192,7 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 .section-head { margin-bottom: 48px; }
 .section-head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-.eyebrow::before { content: "//"; opacity: .6; }
+.eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: currentColor; }
 .dark .eyebrow, .eyebrow-light { color: var(--accent-soft); }
 .intro { color: var(--muted); font-size: 1.08rem; max-width: 58ch; margin: 0; }
 .split-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: start; }
@@ -547,7 +547,7 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 /* ---------- Big role ticker ---------- */
 .role-band { overflow: hidden; padding: 34px 0; background: var(--paper); border-bottom: 1px solid var(--line); }
 .role-track { display: flex; align-items: center; gap: 0.5em; width: max-content; font-family: var(--serif); font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: 1; letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; animation: roles 38s linear infinite; }
-.role-track .outline { color: transparent; -webkit-text-stroke: 1.5px var(--ink); font-style: italic; }
+.role-track .outline { color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
 .role-track i { font-style: normal; font-size: 0.4em; color: var(--accent); margin: 0 0.35em; display: inline-block; animation: twirl 6s linear infinite; }
 .role-band:hover .role-track { animation-play-state: paused; }
 @keyframes roles { to { transform: translateX(-50%); } }
@@ -624,8 +624,11 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 .traj-seg small { font: 400 0.7rem var(--mono); color: var(--muted-dark); white-space: nowrap; }
 .traj-seg[aria-pressed="true"] { background: linear-gradient(160deg, var(--accent), #ff7a45); border-color: var(--accent); color: var(--white); box-shadow: 0 10px 28px rgba(232, 82, 31, 0.45); }
 .traj-seg[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.85); }
-.traj-seg.is-current::after { content: ""; position: absolute; right: 10px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: #7ee2a8; box-shadow: 0 0 0 0 rgba(126, 226, 168, 0.7); animation: live 2s infinite; }
-@keyframes live { 70% { box-shadow: 0 0 0 9px rgba(126, 226, 168, 0); } 100% { box-shadow: 0 0 0 0 rgba(126, 226, 168, 0); } }
+.traj-seg.is-current { padding-right: 40px; }
+.traj-rocket { position: absolute; right: 10px; top: 50%; width: 22px; height: 22px; margin-top: -11px; color: var(--accent-soft); animation: cruise 2.4s ease-in-out infinite; }
+.traj-seg[aria-pressed="true"] .traj-rocket { color: var(--white); }
+@keyframes cruise { 50% { transform: translate(2px, -3px); } }
+@media (prefers-reduced-motion: reduce) { .traj-rocket { animation: none; } }
 .traj-ticks { position: relative; height: 30px; }
 .traj-ticks span { position: absolute; bottom: 0; transform: translateX(-50%); font: 400 0.72rem var(--mono); color: var(--muted-dark); }
 .traj-ticks span::before { content: ""; position: absolute; left: 50%; bottom: 18px; width: 1px; height: 8px; background: rgba(255, 255, 255, 0.25); }
@@ -650,3 +653,22 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
   .job-tags { margin-top: 10px; }
   .job-tags li { font-size: 0.74rem; padding: 4px 10px; }
 }
+
+
+/* ---------- Corporate typography tuning ---------- */
+body { font-size: 17.5px; }
+h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.02em; }
+h3, h4 { font-weight: 600; }
+.hero h1 { font-weight: 800; letter-spacing: -0.035em; }
+.hero h1 em, .rates-hero h1 em { font-style: normal; }
+.role-track { font-weight: 800; letter-spacing: -0.03em; }
+.stat strong, .rate-prices strong, .est-total strong { font-weight: 700; letter-spacing: -0.02em; }
+.eyebrow, .kicker, .trust-label, .fact dt, .ev-role, .article-meta, .job-date, .extras h3, .est-label, .est-controls legend,
+.hero-roles .mono, .photo-tag, .step-num, .svc-num, .service-num, .traj-seg small, .traj-ticks span, .ev-date, .copy-email, .rate-badge {
+  font-family: var(--sans); font-weight: 600; letter-spacing: 0.08em; }
+.ev-date, .traj-seg small, .traj-ticks span, .copy-email, .photo-tag { letter-spacing: 0.02em; }
+.role-rotator { font-weight: 700; }
+.logo-word { font-weight: 700; letter-spacing: -0.01em; }
+
+/* Plus Jakarta's full stop has a wide left side-bearing: tuck it in on big headlines */
+.tuck { margin-left: -0.08em; }
