@@ -391,7 +391,7 @@
   function serviceSwitcher() {
     var grid = $(".services"); if (!grid) return;
     var cards = $$(".service", grid); if (cards.length < 2) return;
-    var mq = window.matchMedia("(min-width: 1001px)");
+    var mq = window.matchMedia("(min-width: 0px)");   /* switcher on every screen size */
     var wrap = document.createElement("div"); wrap.className = "svc-switch";
     var tabs = document.createElement("div"); tabs.className = "svc-tabs";
     tabs.setAttribute("role", "tablist"); tabs.setAttribute("aria-label", "Services");
@@ -416,7 +416,7 @@
         var on = k === i;
         if (mq.matches) {
           card.hidden = !on; card.setAttribute("role", "tabpanel");
-          if (on) { card.classList.add("is-visible", "visible"); if (animate) { card.classList.remove("is-entering"); void card.offsetWidth; card.classList.add("is-entering"); } }
+          if (on) { card.classList.add("is-visible", "visible"); if (animate && tabs.scrollWidth > tabs.clientWidth) { tabs.scrollTo({ left: buttons[k].offsetLeft - 16, behavior: reduceMotion ? "auto" : "smooth" }); } if (animate) { card.classList.remove("is-entering"); void card.offsetWidth; card.classList.add("is-entering"); } }
         } else { card.hidden = false; card.removeAttribute("role"); }
         buttons[k].setAttribute("aria-selected", on); buttons[k].tabIndex = on ? 0 : -1;
       });

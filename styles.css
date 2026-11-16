@@ -639,8 +639,17 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 .job-tags li { font-size: 0.8rem; font-weight: 600; color: var(--ink); background: var(--paper-2); border: 1px solid var(--line); padding: 5px 12px; border-radius: 999px; }
 
 @media (max-width: 1000px) {
+  /* Tablets and phones: services become a swipeable row of buttons above one card */
   .svc-switch { display: block; }
-  .svc-tabs { display: none; }
+  .svc-tabs { position: static; flex-direction: row; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -16px 18px; padding: 2px 16px 6px; scrollbar-width: none; }
+  .svc-tabs::-webkit-scrollbar { display: none; }
+  .svc-tab { flex: none; width: auto; grid-template-columns: 34px auto; gap: 10px; padding: 10px 16px 10px 10px; font-size: 0.95rem; scroll-snap-align: start; white-space: nowrap; }
+  .svc-tab:hover { transform: none; }
+  .svc-tab svg { width: 34px; height: 34px; padding: 7px; border-radius: 9px; }
+  .svc-tab .svc-num { display: none; }
+  .svc-switch .service[hidden] { display: none; }
+  .svc-switch .service.is-entering { animation: svcIn .45s var(--ease); }
+  .svc-switch .service-top { display: none; }
 }
 @media (max-width: 760px) {
   .job-tags { margin-top: 10px; }
