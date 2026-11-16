@@ -13,7 +13,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add("js");</script>
@@ -86,6 +86,7 @@
           <span class="photo-tag mono" aria-hidden="true">Nairobi · 1.29°S 36.82°E</span>
         </figure>
       </div>
+      <svg class="ridge" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="ridge-far" d="M0 160 L0 112 L90 96 L170 104 L260 78 L330 90 L420 70 L500 84 L600 58 L680 74 L760 66 L860 82 L950 62 L1040 76 L1130 54 L1220 72 L1320 64 L1440 80 L1440 160 Z"/><path class="ridge-near" d="M0 160 L0 130 L110 120 L200 126 L290 108 L360 114 L430 92 L470 98 L505 70 L522 78 L540 40 L552 52 L566 34 L584 60 L606 56 L640 86 L700 96 L780 110 L880 104 L980 118 L1080 106 L1180 120 L1300 112 L1440 124 L1440 160 Z"/></svg>
       <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
     </section>
 
@@ -223,11 +224,47 @@
             <a href="#contact" class="link-arrow">Get a quote</a>
           </article>
         </div>
+
+        <!-- HOW I WORK: draft copy, edit freely -->
+        <div class="process">
+          <header class="process-head" data-reveal>
+            <p class="eyebrow">How I work</p>
+            <h3>What working with me looks like</h3>
+          </header>
+          <ol class="process-steps">
+            <li class="step card" data-reveal>
+              <svg class="step-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 12h28v18H22l-8 7v-7h-4z"/><path d="M17 20h14M17 25h9"/></svg>
+              <span class="step-num">01</span>
+              <h4>Briefing</h4>
+              <p>A call with your team to understand the event, the audience and what success looks like.</p>
+            </li>
+            <li class="step card" data-reveal>
+              <svg class="step-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="21" cy="21" r="11"/><path d="M29 29l10 10"/></svg>
+              <span class="step-num">02</span>
+              <h4>Research</h4>
+              <p>I study the speakers, topics and programme, so every introduction and question lands.</p>
+            </li>
+            <li class="step card" data-reveal>
+              <svg class="step-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="18" y="6" width="12" height="20" rx="6"/><path d="M12 22a12 12 0 0 0 24 0M24 34v7M18 41h12"/></svg>
+              <span class="step-num">03</span>
+              <h4>On stage</h4>
+              <p>I host, moderate and keep the programme on time, in English, Kiswahili or both.</p>
+            </li>
+            <li class="step card" data-reveal>
+              <svg class="step-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 25l8 8 16-18"/><circle cx="24" cy="24" r="18"/></svg>
+              <span class="step-num">04</span>
+              <h4>Follow-up</h4>
+              <p>A quick debrief afterwards, plus recap content for your channels if you need it.</p>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
 
+
     <!-- SPEAKING: filterable event cards -->
     <section id="stage" class="section">
+      <div class="spotlight" aria-hidden="true"></div>
       <div class="wrap">
         <header class="section-head" data-reveal>
           <p class="eyebrow">Speaking &amp; hosting</p>
@@ -360,41 +397,46 @@
           <p class="eyebrow">Experience</p>
           <h2>Career</h2>
         </header>
+        <div class="trajectory" hidden></div>
         <ol class="jobs">
-          <li class="job" data-reveal>
+          <li class="job" data-reveal data-short="RIIS" data-start="2026-04" data-end="now">
             <span class="job-node" aria-hidden="true"></span>
             <div class="job-card card glow">
               <span class="job-date mono">Apr 2026 – present</span>
               <h3>Marketing &amp; Communications Specialist</h3>
               <p class="job-org">Research Institute for Innovation and Sustainability (RIIS)</p>
-              <div class="job-more"><div><p>Thought leadership, content strategy and stakeholder communications across space, mining, energy, health and financial services. Built the communications strategy and editorial calendar for the African Earth Observation Challenge (AEOC), covering its four regional finals, its 10-year anniversary and AEOC Junior. Produce marketing collateral, including brochures and credentials decks, as well as social media graphics and web pages.</p></div></div>
+              <ul class="job-tags"><li>RIIS communications</li><li>Thought leadership</li><li>Brochures &amp; decks</li><li>Lead, AEOC communications</li></ul>
+              <div class="job-more"><div><p>Support communications across RIIS and its practice areas, including space, mining, energy, health and financial services: thought leadership, content strategy, stakeholder communications, marketing collateral such as brochures and credentials decks, social media graphics and web pages. Lead communications for the African Earth Observation Challenge (AEOC), including its communications strategy and editorial calendar, its four regional finals, its 10-year anniversary and AEOC Junior.</p></div></div>
             </div>
           </li>
-          <li class="job" data-reveal>
+          <li class="job" data-reveal data-short="Digital Earth Africa" data-start="2025-02" data-end="2026-03">
             <span class="job-node" aria-hidden="true"></span>
             <div class="job-card card glow">
               <span class="job-date mono">Feb 2025 – Mar 2026</span>
               <h3>Communications Officer</h3>
               <p class="job-org">Digital Earth Africa</p>
-              <div class="job-more"><div><p>Digital Earth Africa provides free, analysis-ready satellite data for the whole continent, to support decisions on agriculture, water, climate and land use. I wrote articles, case studies and reports on how the data is being used, managed the website and social media channels, and produced design work.</p></div></div>
+              <ul class="job-tags"><li>Website &amp; social media</li><li>Articles &amp; written interviews</li><li>EO impact stories</li><li>Design</li></ul>
+              <div class="job-more"><div><p>Supported communications for Digital Earth Africa, which provides free, analysis-ready satellite data for the whole continent to support decisions on agriculture, water, climate and land use. Managed the website and social media channels, and wrote articles, case studies and reports, including written interviews with the people using the data. Through these, I helped show in plain language how Earth observation is transforming lives across Africa. Also produced design work for the programme.</p></div></div>
             </div>
           </li>
-          <li class="job" data-reveal>
+          <li class="job" data-reveal data-short="Kenya Space Agency" data-start="2023-10" data-end="2025-02">
             <span class="job-node" aria-hidden="true"></span>
             <div class="job-card card glow">
               <span class="job-date mono">Oct 2023 – Feb 2025</span>
               <h3>Corporate Communications Officer</h3>
               <p class="job-org">Kenya Space Agency</p>
+              <ul class="job-tags"><li>Kenya Space Bill</li><li>Strategic plan</li><li>Press releases &amp; policy briefs</li><li>Kenya Space Expo</li></ul>
               <div class="job-more"><div><p>Part of the agency's communications team. With no head of communications in post, I led much of the day-to-day work informally: communication on Kenya's space activities and international engagements, including newsletters, press releases, graphics, videos and policy briefs. Supported public participation on the Kenya Space Bill and national space policy, and contributed to drafting the agency's strategic plan. Moderated at the Kenya Space Expo &amp; Conference and on national panels.</p></div></div>
             </div>
           </li>
-          <li class="job" data-reveal>
+          <li class="job" data-reveal data-short="Leo Sky Africa" data-start="2023-01" data-end="2023-10">
             <span class="job-node" aria-hidden="true"></span>
             <div class="job-card card glow">
               <span class="job-date mono">Jan 2023 – Oct 2023</span>
               <h3>Science Communicator</h3>
               <p class="job-org">Leo Sky Africa</p>
-              <div class="job-more"><div><p>Created science content to improve public understanding of space and astronomy, and supported outreach and educational campaigns.</p></div></div>
+              <ul class="job-tags"><li>Refreshed communications</li><li>Stargazing &amp; night-sky tours</li><li>Planetarium sessions</li><li>Astrotourism</li></ul>
+              <div class="job-more"><div><p>Refreshed and strengthened Leo Sky Africa's communications, which had no active communications function when I joined. This work improved public understanding of space and astronomy, grew engagement and raised awareness of the organisation. Supported education and outreach, including guided night-sky tours, planetarium sessions and stargazing events across Nairobi. At the Kenya Parks Investment Forum in 2023, I introduced astrotourism as a potential tourism venture; following the forum it became a national agenda item. Through a team effort it has since grown, and the team now actively runs and trains others in astrotourism.</p></div></div>
             </div>
           </li>
         </ol>

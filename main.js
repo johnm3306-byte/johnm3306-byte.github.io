@@ -322,5 +322,160 @@
     if (reduceMotion) $$(".hero-orbit").forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });
   }
 
+  /* ---------- Lively layer ---------- */
+  // Process line draws across when the steps come into view
+  function processLine() {
+    var steps = $(".process-steps"); if (!steps) return;
+    if (!("IntersectionObserver" in window) || reduceMotion) { steps.classList.add("is-drawn"); return; }
+    var io = new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { setTimeout(function () { steps.classList.add("is-drawn"); }, 300); io.disconnect(); }
+    }, { threshold: 0.4 });
+    io.observe(steps);
+  }
+
+  // Speaking: a soft stage light follows the cursor
+  function spotlight() {
+    var stage = $("#stage"), light = $(".spotlight", stage || document);
+    if (!stage || !light || !finePointer || reduceMotion) return;
+    stage.addEventListener("pointermove", function (e) {
+      var r = stage.getBoundingClientRect();
+      light.style.setProperty("--sx", (e.clientX - r.left) + "px");
+      light.style.setProperty("--sy", (e.clientY - r.top) + "px");
+    });
+  }
+
+  // Hero photo drifts gently against the cursor (uses the `translate` property,
+  // so it never fights the entrance animation on `transform`)
+  function heroParallax() {
+    var hero = $(".hero"), photo = $(".hero-photo");
+    if (!hero || !photo || !finePointer || reduceMotion) return;
+    var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+    function tick() {
+      cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+      photo.style.translate = cx.toFixed(2) + "px " + cy.toFixed(2) + "px";
+      raf = (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05) ? requestAnimationFrame(tick) : 0;
+    }
+    hero.addEventListener("pointermove", function (e) {
+      var r = hero.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width - 0.5) * -18;
+      ty = ((e.clientY - r.top) / r.height - 0.5) * -12;
+      if (!raf) raf = requestAnimationFrame(tick);
+    });
+    hero.addEventListener("pointerleave", function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(tick); });
+  }
+
+  // Main call-to-action buttons lean toward the cursor
+  function magneticButtons() {
+    if (!finePointer || reduceMotion) return;
+    $$(".contact-actions .btn-accent").forEach(function (b) {
+      b.addEventListener("pointermove", function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.translate = ((e.clientX - r.left - r.width / 2) * 0.22).toFixed(1) + "px " + ((e.clientY - r.top - r.height / 2) * 0.3).toFixed(1) + "px";
+      });
+      b.addEventListener("pointerleave", function () { b.style.translate = ""; });
+    });
+  }
+
+  // Back-to-top arrow "launches" before the page scrolls up
+  function launchToTop() {
+    var btn = $(".to-top"); if (!btn || reduceMotion) return;
+    btn.addEventListener("click", function () {
+      btn.classList.add("is-launching");
+      setTimeout(function () { btn.classList.remove("is-launching"); }, 900);
+    });
+  }
+
+  [processLine, spotlight, heroParallax, magneticButtons, launchToTop].forEach(safely);
+
+  /* ---------- Services: tabbed switcher on desktop ---------- */
+  function serviceSwitcher() {
+    var grid = $(".services"); if (!grid) return;
+    var cards = $$(".service", grid); if (cards.length < 2) return;
+    var mq = window.matchMedia("(min-width: 1001px)");
+    var wrap = document.createElement("div"); wrap.className = "svc-switch";
+    var tabs = document.createElement("div"); tabs.className = "svc-tabs";
+    tabs.setAttribute("role", "tablist"); tabs.setAttribute("aria-label", "Services");
+    grid.parentNode.insertBefore(wrap, grid); wrap.appendChild(tabs); wrap.appendChild(grid);
+    var buttons = cards.map(function (card, i) {
+      card.classList.remove("tilt"); card.style.transform = "";
+      card.id = card.id || "service-" + (i + 1);
+      var icon = $(".service-icon", card), num = $(".service-num", card), title = $("h3", card);
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "svc-tab"; b.setAttribute("role", "tab"); b.setAttribute("aria-controls", card.id);
+      b.innerHTML = (icon ? icon.outerHTML : "") + '<span>' + title.innerHTML + '</span><span class="svc-num">' + (num ? num.textContent : "") + '</span>';
+      b.addEventListener("click", function () { select(i, true); });
+      b.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); var n = (i + (e.key === "ArrowDown" ? 1 : -1) + cards.length) % cards.length; select(n, true); buttons[n].focus(); }
+      });
+      tabs.appendChild(b); return b;
+    });
+    var current = 0;
+    function select(i, animate) {
+      current = i;
+      cards.forEach(function (card, k) {
+        var on = k === i;
+        if (mq.matches) {
+          card.hidden = !on; card.setAttribute("role", "tabpanel");
+          if (on) { card.classList.add("is-visible", "visible"); if (animate) { card.classList.remove("is-entering"); void card.offsetWidth; card.classList.add("is-entering"); } }
+        } else { card.hidden = false; card.removeAttribute("role"); }
+        buttons[k].setAttribute("aria-selected", on); buttons[k].tabIndex = on ? 0 : -1;
+      });
+    }
+    if (mq.addEventListener) mq.addEventListener("change", function () { select(current, false); });
+    select(0, false);
+  }
+
+  /* ---------- Career: trajectory bar, one role at a time on desktop ---------- */
+  function careerTrajectory() {
+    var box = $(".trajectory"), list = $(".jobs");
+    if (!box || !list) return;
+    var jobs = $$(".job[data-start]", list); if (!jobs.length) return;
+    var mq = window.matchMedia("(min-width: 761px)");
+    var now = new Date();
+    function m(v) { if (v === "now") return now.getFullYear() * 12 + now.getMonth() + 1; var p = v.split("-"); return +p[0] * 12 + (+p[1] - 1); }
+    var data = jobs.map(function (el) { return { el: el, a: m(el.dataset.start), b: m(el.dataset.end), short: el.dataset.short, current: el.dataset.end === "now" }; });
+    var min = Math.min.apply(null, data.map(function (d) { return d.a; }));
+    var max = Math.max.apply(null, data.map(function (d) { return d.b; })) + 1;
+    var span = max - min;
+    var track = document.createElement("div"); track.className = "traj-track";
+    var ticks = document.createElement("div"); ticks.className = "traj-ticks"; ticks.setAttribute("aria-hidden", "true");
+    for (var y = Math.ceil(min / 12); y * 12 <= max; y++) {
+      var t = document.createElement("span"); t.textContent = y; t.style.left = ((y * 12 - min) / span * 100) + "%"; ticks.appendChild(t);
+    }
+    var segs = data.map(function (d, i) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "traj-seg" + (d.current ? " is-current" : "");
+      b.style.left = "calc(" + ((d.a - min) / span * 100) + "% + 3px)";
+      b.style.width = "calc(" + ((d.b - d.a) / span * 100) + "% - 6px)";
+      var years = Math.floor(d.a / 12) + (Math.floor((d.b - 1) / 12) !== Math.floor(d.a / 12) ? "–" + (d.current ? "now" : Math.floor((d.b - 1) / 12)) : (d.current ? "–now" : ""));
+      b.innerHTML = "<b>" + d.short + "</b><small>" + years + "</small>" + (d.current ? '<svg class="traj-rocket" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4c3.5-1 6-1 6-1s0 2.5-1 6l-6 6-5-5z"/><path d="M9 10l-4 1-2 3 4 1M14 15l-1 4-3 2-1-4"/><circle cx="15.5" cy="8.5" r="1.4"/><path d="M6 18l-2 2"/></svg>' : "");
+      b.setAttribute("aria-label", d.short + ", " + $(".job-date", d.el).textContent + ": show role");
+      b.addEventListener("click", function () { select(i, true); });
+      track.appendChild(b); return b;
+    });
+    var hint = document.createElement("p"); hint.className = "traj-hint"; hint.textContent = "Select a role on the timeline to see what I did there.";
+    box.appendChild(track); box.appendChild(ticks); box.appendChild(hint);
+    var current = 0;
+    function select(i, animate) {
+      current = i;
+      data.forEach(function (d, k) {
+        var on = k === i;
+        segs[k].setAttribute("aria-pressed", on);
+        d.el.classList.toggle("is-active", on);
+        if (on) d.el.classList.add("is-visible", "visible");
+      });
+    }
+    function mode() {
+      box.hidden = !mq.matches;
+      list.classList.toggle("is-single", mq.matches);
+      if (!mq.matches) jobs.forEach(function (el) { el.classList.remove("is-active"); });
+      else select(current, false);
+    }
+    if (mq.addEventListener) mq.addEventListener("change", mode);
+    mode();
+  }
+
+  [serviceSwitcher, careerTrajectory].forEach(safely);
+
   [basics, marquees, starfields, roleRotator, reveals, counters, cardFx, eventFilters, timeline, careerAccordion, copyEmail, scrolling, svgMotion].forEach(safely);
 })();
