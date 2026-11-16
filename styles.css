@@ -111,9 +111,8 @@ section[id] { scroll-margin-top: 80px; }
 .hero { min-height: calc(100vh - 62px); display: flex; align-items: center; padding: 64px 0 96px; overflow: hidden;
   background: radial-gradient(70% 60% at 78% 40%, #1a3156 0%, transparent 70%), radial-gradient(50% 50% at 0% 100%, rgba(232, 82, 31, 0.14), transparent 70%), var(--ink); }
 .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: center; width: 100%; }
-.kicker { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 22px; padding: 7px 14px; border: 1px solid rgba(255, 138, 92, 0.3); border-radius: 999px; background: rgba(232, 82, 31, 0.08); }
-.kicker-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(232, 82, 31, 0.6); animation: pulse 2s infinite; }
-@keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(232, 82, 31, 0); } 100% { box-shadow: 0 0 0 0 rgba(232, 82, 31, 0); } }
+.kicker { display: block; font-family: var(--sans); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-dark); margin-bottom: 22px; }
+.kicker-sep { color: var(--accent); margin: 0 0.55em; font-weight: 400; }
 .hero h1 { font-size: clamp(3.2rem, 7.4vw, 6.2rem); line-height: 1; letter-spacing: -0.03em; color: var(--white); margin-bottom: 20px; }
 .hero h1 em { color: var(--accent); background: linear-gradient(90deg, var(--accent), #ffb26b, var(--accent)); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 6s ease-in-out infinite; padding-right: .06em; }
 @keyframes shimmer { 50% { background-position: 100% 0; } }
@@ -314,7 +313,6 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
 
 /* ---------- Rates page ---------- */
 .rates-hero { position: relative; padding: 70px 0 80px; overflow: hidden; background: radial-gradient(60% 80% at 85% 20%, #1a3156, transparent 70%), var(--ink); color: var(--white); }
-.rates-hero .kicker { display: inline-flex; }
 .back-link { display: table; font-size: 0.9rem; font-weight: 600; color: var(--muted-dark); text-decoration: none; margin-bottom: 30px; transition: color var(--fast), transform var(--fast); }
 .back-link:hover { color: var(--accent-soft); transform: translateX(-4px); }
 .rates-hero h1 { font-size: clamp(2.8rem, 6.5vw, 5rem); line-height: 1.02; letter-spacing: -0.02em; color: var(--white); margin-bottom: 20px; }
@@ -434,7 +432,7 @@ html:not(.js) .trust-list { flex-wrap: wrap; }
   .nav nav .btn { margin-top: 14px; }
   .logo-word { font-size: 1.15rem; }
   .hero { padding: 40px 0 90px; }
-  .kicker { font-size: 0.66rem; }
+  .kicker { font-size: 0.7rem; letter-spacing: 0.1em; line-height: 1.8; }
   .photo-tag { left: 0; }
   .section, .contact { padding: 76px 0; }
   .services, .articles, .incl-grid, .extras, .rate-grid, .terms, .addons, .content-grid, .facts { grid-template-columns: 1fr; }
